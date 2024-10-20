@@ -4,5 +4,7 @@ Dieser Anwendungsfall ermöglicht es dem Nutzer, ein eigenes Produkt zur Auktion
 ## 1.2 Mockup
 ## 1.3 Sequenzdiagramm
 ## 1.4 Vorbedingungen
+Der Nutzer öffnet den Webshop und meldet sich an. Er drückt den Button "Auktion für ein Produkt erstellen".
 ## 1.5 Nachbedingungen
+Der Nutzer wird auf die Hauptseite weitergeleitet. Es werden alle Informationen von der Auktion in der Datenbank gespeichert.
 ## 1.6 Aufwandsschätzung

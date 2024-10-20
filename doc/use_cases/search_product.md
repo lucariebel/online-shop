@@ -4,5 +4,7 @@ Dieser Anwendungsfall ermöglicht es dem Kunden, Produkte im Online-Shop zu durc
 ## 1.2 Mockup
 ## 1.3 Sequenzdiagramm
 ## 1.4 Vorbedingungen
+Der Nutzer öffnet den Webshop und meldet sich an.
 ## 1.5 Nachbedingungen
+Der Nutzer bekommt alle Produkte angezeigt, die er ausgewählt oder gesucht hat.  
 ## 1.6 Aufwandsschätzung
