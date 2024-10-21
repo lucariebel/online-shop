@@ -40,7 +40,7 @@ Unsere Produktvision ist es, eine einzigartige Online-Plattform zu schaffen, die
 #### 3.1.1 Nach Produkten suchen
 Diese Funktion bietet einen Überblick über alle verfügbaren Produkte im Shop. Nutzer können Produkte durchsuchen, die ihren Interessen entsprechen, und mithilfe von Filtern das Angebot verfeinern. Aus der Übersicht können sie ein Produkt auswählen und sich dessen Details ansehen.
 
-[Nach Produkten suchen](../doc/use_cases/bid-on-product.md)
+[Nach Produkten suchen](../doc/use_cases/search_product.md)
 
 #### 3.1.2 Benutzerkonto erstellen
 Diese Funktion erlaubt es Nutzern, ein Konto im Webshop zu erstellen. Alle nötigen Informationen werden in einem Formular gesammelt. Nach der Registrierung haben Nutzer Zugang zu personalisierten Funktionen und können an Auktionen teilnehmen.
