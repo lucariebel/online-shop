@@ -40,27 +40,27 @@ Unsere Produktvision ist es, eine einzigartige Online-Plattform zu schaffen, die
 #### 3.1.1 Nach Produkten suchen
 Diese Funktion bietet einen Überblick über alle verfügbaren Produkte im Shop. Nutzer können Produkte durchsuchen, die ihren Interessen entsprechen, und mithilfe von Filtern das Angebot verfeinern. Aus der Übersicht können sie ein Produkt auswählen und sich dessen Details ansehen.
 
-[Nach Produkten suchen](../doc/use_cases/UC01-search-product)
+[Nach Produkten suchen](../doc/use_cases/UC01-search-product.md)
 
 #### 3.1.2 Benutzerkonto erstellen
 Diese Funktion erlaubt es Nutzern, ein Konto im Webshop zu erstellen. Alle nötigen Informationen werden in einem Formular gesammelt. Nach der Registrierung haben Nutzer Zugang zu personalisierten Funktionen und können an Auktionen teilnehmen.
 
-[Benutzerkonto erstellen](../doc/use_cases/UC02-create-user-account)
+[Benutzerkonto erstellen](../doc/use_cases/UC02-create-user-account.md)
 
 #### 3.1.3 Auktion für ein Produkt erstellen
 Diese Funktion ermöglicht es Nutzern, eigene Produkte zur Auktion anzubieten. Alle wichtigen Informationen zum Produkt und zur Auktion werden hier hinzugefügt. Von der Übersicht aus können andere Nutzer auf das Produkt bieten.
 
-[Auktion für ein Produkt erstellen](../doc/use_cases/UC03-create-auction)
+[Auktion für ein Produkt erstellen](../doc/use_cases/UC03-create-auction.md)
 
 #### 3.1.4 Auf ein Produkt bieten
 Diese Funktion ermöglicht es Nutzern, an laufenden Auktionen teilzunehmen. Alle aktiven Gebote werden hier gesammelt. Nutzer können ein Produkt auswählen, ein Gebot abgeben und den Status der Auktion verfolgen.
 
-[Auf ein Produkt bieten](../doc/use_cases/UC04-bid-on-product)
+[Auf ein Produkt bieten](../doc/use_cases/UC04-bid-on-product.md)
 
 #### 3.1.5 Bietverlauf und Auktionen verfolgen
 Diese Funktion bietet einen Überblick über alle aktiven Auktionen und die abgegebenen Gebote des Nutzers. Nutzer können hier den Status ihrer Gebote verfolgen und sehen, ob sie noch das höchste Gebot halten.
 
-[Bietverlauf und Auktionen verfolgen](../doc/use_cases/UC05-track-bidding-and-auctions)
+[Bietverlauf und Auktionen verfolgen](../doc/use_cases/UC05-track-bidding-and-auctions.md)
 
 ### 3.2 Usability
 ### 3.3 Reliability
