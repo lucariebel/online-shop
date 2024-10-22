@@ -10,3 +10,4 @@ Der Nutzer öffnet den Webshop und meldet sich an. Er drückt den Button "Auktio
 ## 1.5 Nachbedingungen
 Der Nutzer wird auf die Hauptseite weitergeleitet. Es werden alle Informationen von der Auktion in der Datenbank gespeichert.
 ## 1.6 Aufwandsschätzung
+Wir haben den Aufwand für die Implementierung der Auktionserstellung auf 13 Storypunkte geschätzt.

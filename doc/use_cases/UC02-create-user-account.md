@@ -10,3 +10,4 @@ Der Nutzer öffnet den Webshop und klickt auf den Button "Registrieren".
 ## 1.5 Nachbedingungen
 Eine Benachrichtigung wird dem Nutzer angezeigt, dass er registriert ist und er wird auf die Hauptseite des Webshops weitergeleitet. Die Daten des Nutzers werden in einer Datenbank gespeichert.
 ## 1.6 Aufwandsschätzung
+Wir haben den Aufwand für die Implementierung der Accounterstellung auf 5 Storypunkte geschätzt.

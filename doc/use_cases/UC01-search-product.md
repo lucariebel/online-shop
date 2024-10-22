@@ -10,3 +10,4 @@ Der Nutzer öffnet den Webshop und meldet sich an.
 ## 1.5 Nachbedingungen
 Der Nutzer bekommt alle Produkte angezeigt, die er ausgewählt oder gesucht hat.  
 ## 1.6 Aufwandsschätzung
+Wir haben den Aufwand für die Implementierung der Suche auf 8 Storypunkte geschätzt.

@@ -6,3 +6,4 @@ Dieser Anwendungsfall ermöglicht es den Nutzern, auf Produkte in einer laufende
 ## 1.4 Vorbedingungen
 ## 1.5 Nachbedingungen
 ## 1.6 Aufwandsschätzung
+Wir haben den Aufwand für die Implementierung des Bietsystems auf 13 Storypunkte geschätzt.
