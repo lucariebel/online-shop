@@ -2,7 +2,7 @@
 ## 1.1 Beschreibung
 Dieser Anwendungsfall ermöglicht es dem Kunden, Produkte im Online-Shop zu durchsuchen. Der Kunde kann dabei entweder durch Kategorien blättern oder die Suchfunktion verwenden, um gezielt nach Produkten zu suchen. Um eine neue Suche zu starten, muss der Kunde die Suchleiste verwenden oder eine Produktkategorie auswählen. Optionale Filter wie Preis helfen dabei, die Produktauswahl zu verfeinern.
 ## 1.2 Mockup
-![grafik](https://github.com/user-attachments/assets/931eaa92-64d4-4457-9269-c0bc9ea81d41)
+![grafik](https://github.com/user-attachments/assets/2ceba101-39cd-43d1-943a-cc3d35a4029e)
 ## 1.3 Sequenzdiagramm
 ![UC01-sequence-diagram](/doc/use_cases/sequence-diagrams/UC01-search-product.png)
 ## 1.4 Vorbedingungen
