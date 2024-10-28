@@ -29,6 +29,7 @@ Das folgende Kapitel bietet einen Überblick über dieses Projekt mit einer Visi
 ### 2.1 Vision
 Unsere Produktvision ist es, eine einzigartige Online-Plattform zu schaffen, die sowohl Sofortkauf- als auch Auktionsfunktionen bietet. Wir bieten eine breite Palette an coolen Produkten an, von Streetwear bis hin zu getunten Autos. Unser Ziel ist es, eine Anlaufstelle für Trendsetter zu sein.
 ### 2.2 Use Case Diagram
+![overall-use-case-diagram](/doc/use_cases/overall-use-case-diagram.png)
 ### 2.3 Technology Stack
 - Frontend: Angular
 - Backend: ASP.NET
