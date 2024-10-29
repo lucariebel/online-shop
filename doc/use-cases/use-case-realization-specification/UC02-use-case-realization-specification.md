@@ -10,7 +10,7 @@ Diese Spezifikation bezieht sich auf den Use-Case "Benutzer erstellen" im Kontex
 - **Online-Shop:** Die Webanwendung, die das Registrierungsformular bereitstellt und die Eingaben überprüft.
 - **Datenbank:** Das System, das die Benutzerdaten speichert und überprüft, ob der Benutzer bereits existiert.
 ### 1.4 References
-[Use-Case-02: Benutzer erstellen](doc/use_cases/UC02-create-user-account.md)
+[Use-Case-02: Benutzer erstellen](../UC02-create-user-account.md)
 ### 1.5 Overview
 Dieses Dokument umfasst die Spezifikation des "Benutzer erstellen" Use-Cases und beschreibt den Ablauf der Ereignisse sowie abgeleitete Anforderungen, die bei der Implementierung zu berücksichtigen sind.
 ## 2. Flow of Events - Design

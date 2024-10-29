@@ -12,7 +12,7 @@ Enthält Kategorien wie Navigation, Produktsuche und Filteranwendung.
 - **UML**: Vereinheitlichte Modellierungssprache.
 
 ### 1.4 References
-[Use-Case-01: Produkte suchen](/doc/use_cases/UC01-search-product.md)
+[Use-Case-01: Produkte suchen](../UC01-search-product.md)
 ### 1.5 Overview
 Dieses Dokument enthält einen präzisen Plan für die Implementierung des Anwendungsfalls "Produkte durchsuchen" in unserem Online-Shop. Es umfasst den Zweck und den Umfang der Funktionalität, Schlüssel Definitionen, relevante Referenzen, einen detaillierten Designfluss von Ereignissen und abgeleitete Anforderungen. Ziel ist es, das Entwicklungsteam bei der effizienten Umsetzung der Produkt-Durchsuchen Funktionen anzuleiten und sicherzustellen, dass alle Anforderungen erfüllt werden.
 ## 2. Flow of Events - Design
