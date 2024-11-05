@@ -1,11 +1,16 @@
-﻿namespace Backend.Classes
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace Backend.Classes
 {
     public partial class Article
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ArticleId { get; set; }
         public int UserId { get; set; }
         public string ArticleName { get; set; }
-        public List<Picture> Pictures { get; set; }
+        public List<string> Pictures { get; set; }
         public string Description { get; set; }
     }
 
