@@ -36,5 +36,19 @@ namespace Backend.Controllers
         {
             return await _articleService.PostArticle(directBuyArticle);
         }
+
+        // Put: api/Article
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutArticle(int id, DirectBuyArticle directBuyArticle)
+        {
+            return await _articleService.PutArticle(id, directBuyArticle);
+        }
+
+        // Delete: api/Article
+        [HttpDelete]
+        public async Task<IActionResult> DeleteArticle(int id)
+        {
+            return await _articleService.DeleteArticle(id);
+        }
     }
 }
