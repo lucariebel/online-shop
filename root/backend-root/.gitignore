@@ -41,3 +41,8 @@ bld/
 msbuild.log
 msbuild.err
 msbuild.wrn
+
+# Database files
+/Backend/WebShop24Database.db
+/Backend/WebShop24Database.db-shm
+/Backend/WebShop24Database.db-wal
