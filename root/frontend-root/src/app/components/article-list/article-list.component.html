@@ -28,7 +28,7 @@
             class="!tw-text-black !tw-font-normal tw-h-11 !tw-line-clamp-2"
             >{{ article.articleName }}
           </mat-card-subtitle>
-          <mat-card-title>{{ article.price }}</mat-card-title>
+          <mat-card-title>{{ article.price | eurFormat }}</mat-card-title>
         </mat-card-header>
       </mat-card>
     }

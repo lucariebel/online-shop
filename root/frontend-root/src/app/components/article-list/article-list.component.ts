@@ -11,6 +11,7 @@ import {
   MatCardTitle,
 } from '@angular/material/card';
 import { MatIconButton } from '@angular/material/button';
+import { EurFormatPipe } from '../../core/pipes/eur-format.pipe';
 
 @Component({
   selector: 'app-article-list',
@@ -25,6 +26,7 @@ import { MatIconButton } from '@angular/material/button';
     MatCardHeader,
     MatCardTitle,
     MatCardSubtitle,
+    EurFormatPipe,
   ],
   templateUrl: './article-list.component.html',
 })
