@@ -10,90 +10,7 @@ import { DirectBuyArticle } from '../interfaces/DirectBuyArticle';
 export class ArticleService {
   url: string = environment.apiUrl + '/article';
 
-  directBuyArticles: DirectBuyArticle[] = [
-    {
-      articleId: 1,
-      articleName:
-        'converse chuck taylor batman DC supermen original ungetragen "vi',
-      price: 12,
-      userId: 1,
-      pictures: ['https://i.ebayimg.com/images/g/S0cAAOSwxcFnKgTY/s-l500.jpg'],
-      description: 'blabla',
-      category: 'Schuh',
-    },
-    {
-      articleId: 2,
-      articleName: 'test2',
-      price: 123,
-      userId: 1,
-      pictures: ['https://i.ebayimg.com/images/g/S0cAAOSwxcFnKgTY/s-l500.jpg'],
-      description: 'blablofdfa',
-      category: 'Schuh',
-    },
-    {
-      articleId: 2,
-      articleName: 'test2',
-      price: 123,
-      userId: 2,
-      pictures: ['https://i.ebayimg.com/images/g/N-EAAOSwvQBly6XW/s-l500.jpg'],
-      description: 'blablofdfa',
-      category: 'Schuh',
-    },
-    {
-      articleId: 2,
-      articleName: 'test2',
-      price: 123,
-      userId: 1,
-      pictures: ['https://i.ebayimg.com/images/g/S0cAAOSwxcFnKgTY/s-l500.jpg'],
-      description: 'blablofdfa',
-      category: 'Schuh',
-    },
-    {
-      articleId: 2,
-      articleName: 'test2',
-      price: 123,
-      userId: 2,
-      pictures: ['https://i.ebayimg.com/images/g/N-EAAOSwvQBly6XW/s-l500.jpg'],
-      description: 'blablofdfa',
-      category: 'Schuh',
-    },
-    {
-      articleId: 2,
-      articleName: 'test2',
-      price: 123,
-      userId: 2,
-      pictures: ['https://i.ebayimg.com/images/g/N-EAAOSwvQBly6XW/s-l500.jpg'],
-      description: 'blablofdfa',
-      category: 'Schuh',
-    },
-    {
-      articleId: 2,
-      articleName: 'test2',
-      price: 123,
-      userId: 1,
-      pictures: ['https://i.ebayimg.com/images/g/S0cAAOSwxcFnKgTY/s-l500.jpg'],
-      description: 'blablofdfa',
-      category: 'Schuh',
-    },
-    {
-      articleId: 2,
-      articleName: 'test2',
-      price: 123,
-      userId: 2,
-      pictures: ['https://i.ebayimg.com/images/g/N-EAAOSwvQBly6XW/s-l500.jpg'],
-      description: 'blablofdfa',
-      category: 'Schuh',
-    },
-    {
-      articleId: 2,
-      articleName: 'test2',
-      price: 123,
-      userId: 2,
-      pictures: ['https://i.ebayimg.com/images/g/N-EAAOSwvQBly6XW/s-l500.jpg'],
-      description: 'blablofdfa',
-      category: 'Schuh',
-    },
-  ];
+  directBuyArticles: DirectBuyArticle[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -103,6 +20,7 @@ export class ArticleService {
         this.http.get<DirectBuyArticle>(this.url),
       );
       console.log(data);
+      return data;
     } catch (error) {
       console.error(error);
     }
