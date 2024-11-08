@@ -1,7 +1,8 @@
-export interface Article{
+export interface Article {
   articleId: number;
   userId: number;
   articleName: string;
-  pictures?: string;
+  pictures: string[];
   description: string;
+  category: string;
 }
