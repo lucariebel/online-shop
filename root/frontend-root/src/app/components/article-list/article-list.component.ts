@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ArticleService } from '../../core/services/article.service';
 import { MatIcon } from '@angular/material/icon';
 import { SlicePipe } from '@angular/common';
@@ -30,18 +30,8 @@ import { EurFormatPipe } from '../../core/pipes/eur-format.pipe';
   ],
   templateUrl: './article-list.component.html',
 })
-export class ArticleListComponent implements OnInit {
+export class ArticleListComponent {
   articlePosition = 0;
 
   constructor(public articleService: ArticleService) {}
-
-  ngOnInit() {
-    this.getArticles();
-  }
-
-  private getArticles() {
-    this.articleService.getArticles().then((articles) => {
-      this.articleService.directBuyArticles = articles;
-    });
-  }
 }
