@@ -1,0 +1,29 @@
+<h1>Neuer Artikel</h1>
+<form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Name des Artikels</mat-label>
+    <input matInput formControlName="articleName" [(ngModel)]="newArticle.articleName"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Kategorie</mat-label>
+    <input matInput formControlName="category" [(ngModel)]="newArticle.category"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Preis</mat-label>
+    <input matInput type="number" formControlName="price" [(ngModel)]="newArticle.price"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Bilder</mat-label>
+    <input matInput type="text" formControlName="pictures" [(ngModel)]="newArticle.pictures"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Beschreibung</mat-label>
+    <textarea matInput formControlName="description" [(ngModel)]="newArticle.description" ></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Artikel einstellen</button>
+</form>
