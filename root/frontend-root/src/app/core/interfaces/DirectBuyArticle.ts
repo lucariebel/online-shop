@@ -1,5 +1,5 @@
-import {Article} from "./Article";
+import { Article } from './Article';
 
-export interface DirectBuyArticle extends Article{
+export interface DirectBuyArticle extends Article {
   price: number;
 }
