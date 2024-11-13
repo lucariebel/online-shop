@@ -16,6 +16,7 @@ builder.Services.AddControllers().AddJsonOptions(opt =>
 builder.Services.AddDbContext<WebShop24DbContext>(options => options.UseSqlite(
     builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IArticleService, ArticleService>();
+builder.Services.AddScoped<IAuctionService, AuctionService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
