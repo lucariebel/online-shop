@@ -47,7 +47,13 @@ export class CreateArticleComponent {
 
   onSubmit() {
     console.log('article:', this.articleForm.value);
-    this.articleService.directBuyArticles.push(this.newArticle);
+    this.postArticle();
     console.log(this.articleService.directBuyArticles);
+  }
+
+  private postArticle() {
+    this.articleService.postArticle(this.newArticle).then((data) => {
+      this.articleService.directBuyArticles.push(data);
+    });
   }
 }
