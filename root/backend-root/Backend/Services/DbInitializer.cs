@@ -17,7 +17,7 @@ public class DbInitializer(WebShop24DbContext webShop24DbContext)
     public async void InsertDummyDataToDb()
     {
         // DirectBuyArticles
-        for(int i = 0; i < 9; i++)
+        for (int i = 0; i < 9; i++)
         {
             DirectBuyArticle directBuyArticle = new()
             {

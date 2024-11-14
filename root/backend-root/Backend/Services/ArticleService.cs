@@ -33,7 +33,7 @@ namespace Backend.Services
         {
             DirectBuyArticle directBuyArticle = await _context.Articles.FindAsync(id);
 
-            if(directBuyArticle == null)
+            if (directBuyArticle == null)
             {
                 return NotFound();
             }
@@ -50,7 +50,7 @@ namespace Backend.Services
         }
 
         // Put
-        public async Task<IActionResult> PutArticle(int id,  DirectBuyArticle directBuyArticle)
+        public async Task<IActionResult> PutArticle(int id, DirectBuyArticle directBuyArticle)
         {
             if (id != directBuyArticle.ArticleId)
             {
@@ -80,7 +80,7 @@ namespace Backend.Services
         public async Task<ActionResult> DeleteArticle(int id)
         {
             DirectBuyArticle directBuyArticle = await _context.Articles.FindAsync(id);
-            if(directBuyArticle == null)
+            if (directBuyArticle == null)
             {
                 return NotFound();
             }
