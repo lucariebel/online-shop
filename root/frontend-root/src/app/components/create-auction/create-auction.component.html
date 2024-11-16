@@ -5,7 +5,7 @@
     <input
       matInput
       formControlName="articleName"
-      [(ngModel)]="newArticle.articleName"
+      [(ngModel)]="newAuction.articleName"
     />
   </mat-form-field>
 
@@ -14,7 +14,7 @@
     <input
       matInput
       formControlName="category"
-      [(ngModel)]="newArticle.category"
+      [(ngModel)]="newAuction.category"
     />
   </mat-form-field>
 
@@ -22,9 +22,13 @@
     <mat-label>Auktionsende</mat-label>
     <input
       matInput
-      formControlName="endDate"
-      [(ngModel)]="newArticle.endDate"
+      [matDatepicker]="picker"
+      [value]="newAuction.endDate"
+      (dateChange)="newAuction.endDate = $event.value"
     />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="full-width">
@@ -34,7 +38,7 @@
       type="number"
       pattern="[1-9]+"
       formControlName="price"
-      [(ngModel)]="newArticle.price"
+      [(ngModel)]="newAuction.price"
     />
   </mat-form-field>
 
@@ -48,7 +52,7 @@
     <textarea
       matInput
       formControlName="description"
-      [(ngModel)]="newArticle.description"
+      [(ngModel)]="newAuction.description"
     ></textarea>
   </mat-form-field>
 

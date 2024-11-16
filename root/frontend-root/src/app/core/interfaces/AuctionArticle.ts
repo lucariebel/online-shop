@@ -1,6 +1,6 @@
 import { Article } from './Article';
 
 export interface AuctionArticle extends Article {
-  endDate: string;
+  endDate: Date;
   price: number;
 }

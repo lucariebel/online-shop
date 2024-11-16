@@ -48,7 +48,7 @@ namespace Backend.Services
             _context.Auctions.Add(auctionArticle);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetArticle", new { id = auctionArticle.ArticleId }, auctionArticle);
+            return CreatedAtAction("GetAuction", new { id = auctionArticle.ArticleId }, auctionArticle);
         }
 
         // Put
