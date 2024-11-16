@@ -1,1 +1,58 @@
-<p>create-auction works!</p>
+<h1>Neue Auktion</h1>
+<form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Name des Artikels</mat-label>
+    <input
+      matInput
+      formControlName="articleName"
+      [(ngModel)]="newArticle.articleName"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Kategorie</mat-label>
+    <input
+      matInput
+      formControlName="category"
+      [(ngModel)]="newArticle.category"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Auktionsende</mat-label>
+    <input
+      matInput
+      formControlName="endDate"
+      [(ngModel)]="newArticle.endDate"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Startpreis</mat-label>
+    <input
+      matInput
+      type="number"
+      pattern="[1-9]+"
+      formControlName="price"
+      [(ngModel)]="newArticle.price"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Bilder</mat-label>
+    <input matInput type="text" formControlName="pictures" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Beschreibung</mat-label>
+    <textarea
+      matInput
+      formControlName="description"
+      [(ngModel)]="newArticle.description"
+    ></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="onSubmit()" routerLink="">
+    Auktion einstellen
+  </button>
+</form>
