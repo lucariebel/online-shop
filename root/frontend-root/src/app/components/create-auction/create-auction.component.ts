@@ -3,10 +3,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import {
-  ReactiveFormsModule,
   FormBuilder,
   FormGroup,
   FormsModule,
+  ReactiveFormsModule,
 } from '@angular/forms';
 import { AuctionArticle } from '../../core/interfaces/AuctionArticle';
 import { AuctionService } from '../../core/services/auction.service';
@@ -44,7 +44,7 @@ export class CreateAuctionComponent {
     endDate: new Date(),
     description: '',
     pictures: ['test'],
-    price: 0,
+    bid: 0,
   };
 
   constructor(
