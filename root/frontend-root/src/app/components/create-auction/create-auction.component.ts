@@ -3,10 +3,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import {
+  ReactiveFormsModule,
   FormBuilder,
   FormGroup,
   FormsModule,
-  ReactiveFormsModule,
 } from '@angular/forms';
 import { AuctionArticle } from '../../core/interfaces/AuctionArticle';
 import { AuctionService } from '../../core/services/auction.service';
@@ -16,6 +16,7 @@ import {
   MatDatepickerInput,
   MatDatepickerToggle,
 } from '@angular/material/datepicker';
+import { ImageUploadService } from '../../core/services/image-upload.service';
 
 @Component({
   selector: 'app-create-auction',
@@ -43,20 +44,21 @@ export class CreateAuctionComponent {
     category: '',
     endDate: new Date(),
     description: '',
-    pictures: ['test'],
+    pictures: [] as string[],
     bid: 0,
   };
 
   constructor(
     private fb: FormBuilder,
     public auctionService: AuctionService,
+    public imageService: ImageUploadService,
   ) {
     this.articleForm = this.fb.group({
       articleName: [''],
       category: [''],
       endDate: [''],
       price: [''],
-      pictures: [''],
+      pictures: [] as string[],
       description: [''],
     });
   }
@@ -70,6 +72,14 @@ export class CreateAuctionComponent {
   private postAuction() {
     this.auctionService.postAuction(this.newAuction).then((data) => {
       this.auctionService.auctionArticles.push(data);
+    });
+  }
+
+  addImgToArticle() {
+    this.imageService.compressMultipleFiles().then((data) => {
+      data.forEach((item) => {
+        this.newAuction.pictures.push(item);
+      });
     });
   }
 }

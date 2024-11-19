@@ -6,6 +6,8 @@ import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 import { DirectBuyArticle } from '../../core/interfaces/DirectBuyArticle';
 import { ArticleService } from '../../core/services/article.service';
 import { RouterLink } from '@angular/router';
+import { NgxImageCompressService } from 'ngx-image-compress';
+import { ImageUploadService } from '../../core/services/image-upload.service';
 
 @Component({
   selector: 'app-create-article',
@@ -28,13 +30,15 @@ export class CreateArticleComponent {
     articleName: '',
     category: '',
     description: '',
-    pictures: ['test'],
+    pictures: [] as string[],
     price: 0,
   };
 
   constructor(
     private fb: FormBuilder,
     public articleService: ArticleService,
+    public imageCompress: NgxImageCompressService,
+    public imageService: ImageUploadService,
   ) {
     this.articleForm = this.fb.group({
       articleName: [''],
@@ -54,6 +58,14 @@ export class CreateArticleComponent {
   private postArticle() {
     this.articleService.postArticle(this.newArticle).then((data) => {
       this.articleService.directBuyArticles.push(data);
+    });
+  }
+
+  addImgToArticle() {
+    this.imageService.compressMultipleFiles().then((data) => {
+      data.forEach((item) => {
+        this.newArticle.pictures.push(item);
+      });
     });
   }
 }
