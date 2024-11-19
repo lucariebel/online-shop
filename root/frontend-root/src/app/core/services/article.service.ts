@@ -27,6 +27,18 @@ export class ArticleService {
     }
   }
 
+  async getRandomArticles(count: number): Promise<any> {
+    try {
+      const data = await firstValueFrom(
+        this.http.get<DirectBuyArticle>(`${this.url}/random?count=${count}`),
+      );
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   async postArticle(article: Article): Promise<any> {
     try {
       const data: DirectBuyArticle = await firstValueFrom(

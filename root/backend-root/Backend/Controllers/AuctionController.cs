@@ -29,6 +29,13 @@ namespace Backend.Controllers
             return await _auctionService.GetAuction(id);
         }
 
+        // Get: api/Auction/Random
+        [HttpGet("Random")]
+        public async Task<ActionResult<IEnumerable<AuctionArticle>>> GetRandomAuctions(int count)
+        {
+            return await _auctionService.GetRandomArticles(count);
+        }
+
         // Post: api/Auction
         [HttpPost]
         public async Task<ActionResult<AuctionArticle>> PostAuction(AuctionArticle auctionArticle)

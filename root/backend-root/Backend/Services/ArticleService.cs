@@ -9,6 +9,7 @@ namespace Backend.Services
     {
         Task<ActionResult<IEnumerable<DirectBuyArticle>>> GetArticles();
         Task<ActionResult<DirectBuyArticle>> GetArticle(int id);
+        Task<ActionResult<IEnumerable<DirectBuyArticle>>> GetRandomArticles(int count);
         Task<ActionResult<DirectBuyArticle>> PostArticle(DirectBuyArticle directBuyArticle);
         Task<IActionResult> PutArticle(int id, DirectBuyArticle directBuyArticle);
         Task<ActionResult> DeleteArticle(int id);
@@ -38,6 +39,13 @@ namespace Backend.Services
                 return NotFound();
             }
             return directBuyArticle;
+        }
+
+        // Get random articles
+        public async Task<ActionResult<IEnumerable<DirectBuyArticle>>> GetRandomArticles(int count)
+        {
+            List<DirectBuyArticle> directBuyArticles = [];
+            return await _context.Articles.OrderBy(article => EF.Functions.Random()).Take(count).ToListAsync(); ;
         }
 
         // Post

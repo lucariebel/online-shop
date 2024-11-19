@@ -30,6 +30,13 @@ namespace Backend.Controllers
             return await _articleService.GetArticle(id);
         }
 
+        // Get: api/Article/Random
+        [HttpGet("Random")]
+        public async Task<ActionResult<IEnumerable<DirectBuyArticle>>> GetRandomArticles(int count)
+        {
+            return await _articleService.GetRandomArticles(count);
+        }
+
         // Post: api/Article
         [HttpPost]
         public async Task<ActionResult<DirectBuyArticle>> PostArticle(DirectBuyArticle directBuyArticle)

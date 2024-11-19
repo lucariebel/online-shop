@@ -26,6 +26,18 @@ export class AuctionService {
     }
   }
 
+  async getRandomAuctions(count: number): Promise<any> {
+    try {
+      const data: AuctionArticle = await firstValueFrom(
+        this.http.get<AuctionArticle>(`${this.url}/random?count=${count}`),
+      );
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   async postAuction(auction: AuctionArticle): Promise<any> {
     try {
       const data: AuctionArticle = await firstValueFrom(

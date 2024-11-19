@@ -9,6 +9,7 @@ namespace Backend.Services
     {
         Task<ActionResult<IEnumerable<AuctionArticle>>> GetAuctions();
         Task<ActionResult<AuctionArticle>> GetAuction(int id);
+        Task<ActionResult<IEnumerable<AuctionArticle>>> GetRandomArticles(int count);
         Task<ActionResult<AuctionArticle>> PostAuction(AuctionArticle auctionArticle);
         Task<IActionResult> PutAuction(int id, AuctionArticle auctionArticle);
         Task<ActionResult> DeleteAuction(int id);
@@ -40,6 +41,13 @@ namespace Backend.Services
                 return NotFound();
             }
             return auctionArticle;
+        }
+
+        // Get random auctions
+        public async Task<ActionResult<IEnumerable<AuctionArticle>>> GetRandomArticles(int count)
+        {
+            List<AuctionArticle> auctionArticles = [];
+            return await _context.Auctions.OrderBy(article => EF.Functions.Random()).Take(count).ToListAsync();
         }
 
         // Post
