@@ -1,5 +1,5 @@
 <h1>Neue Auktion</h1>
-<form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="articleForm">
   <mat-form-field appearance="outline" class="full-width">
     <mat-label>Name des Artikels</mat-label>
     <input
@@ -42,10 +42,22 @@
     />
   </mat-form-field>
 
-  <mat-form-field appearance="outline" class="full-width">
-    <mat-label>Bilder</mat-label>
-    <input matInput type="text" formControlName="pictures" />
-  </mat-form-field>
+  <div class="img-container">
+    <button mat-raised-button (click)="addImgToArticle()">
+      Bilder hochladen
+    </button>
+    @if (newAuction.pictures.length > 0) {
+      <div>
+        @for (img of newAuction.pictures; track newAuction.pictures) {
+          <img
+            class="tw-h-80 tw-w-80 tw-object-cover tw-object-center tw-aspect-square"
+            [src]="img"
+            alt="article picture..."
+          />
+        }
+      </div>
+    }
+  </div>
 
   <mat-form-field appearance="outline" class="full-width">
     <mat-label>Beschreibung</mat-label>

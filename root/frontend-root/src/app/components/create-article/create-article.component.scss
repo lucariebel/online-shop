@@ -11,3 +11,13 @@ mat-form-field {
 button {
   border-radius: 8px;
 }
+
+.img-container{
+  border: 1px solid #b0b0b0;
+  border-radius: 4px;
+  margin-bottom: 40px;
+}
+
+.img-container:hover{
+  border-color: black;
+}
