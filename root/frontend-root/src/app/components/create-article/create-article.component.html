@@ -1,61 +1,70 @@
-<h1>Neuer Artikel</h1>
-<form [formGroup]="articleForm">
-  <mat-form-field appearance="outline" class="full-width">
-    <mat-label>Name des Artikels</mat-label>
-    <input
-      matInput
-      formControlName="articleName"
-      [(ngModel)]="newArticle.articleName"
-    />
-  </mat-form-field>
+<div class="tw-m-16">
+  <h1 class="!tw-mb-0">Neuer Artikel</h1>
+  <hr class="tw-mb-10" />
+  <form [formGroup]="articleForm">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Name des Artikels</mat-label>
+      <input
+        matInput
+        formControlName="articleName"
+        [(ngModel)]="newArticle.articleName"
+      />
+    </mat-form-field>
 
-  <mat-form-field appearance="outline" class="full-width">
-    <mat-label>Kategorie</mat-label>
-    <input
-      matInput
-      formControlName="category"
-      [(ngModel)]="newArticle.category"
-    />
-  </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Kategorie</mat-label>
+      <input
+        matInput
+        formControlName="category"
+        [(ngModel)]="newArticle.category"
+      />
+    </mat-form-field>
 
-  <mat-form-field appearance="outline" class="full-width">
-    <mat-label>Preis</mat-label>
-    <input
-      matInput
-      type="number"
-      pattern="[1-9]+"
-      formControlName="price"
-      [(ngModel)]="newArticle.price"
-    />
-  </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Preis</mat-label>
+      <input
+        matInput
+        type="number"
+        pattern="[1-9]+"
+        formControlName="price"
+        [(ngModel)]="newArticle.price"
+      />
+    </mat-form-field>
 
-  <div class="img-container">
-    <button mat-raised-button (click)="addImgToArticle()">
-      Bilder hochladen
+    <div class="img-container">
+      <button mat-raised-button color="secondary" (click)="addImgToArticle()">
+        Bilder hochladen
+      </button>
+      @if (newArticle.pictures.length > 0) {
+        <hr />
+        <div>
+          @for (img of newArticle.pictures; track newArticle.pictures) {
+            <img
+              class="tw-h-80 tw-w-80 tw-object-cover tw-object-center tw-aspect-square"
+              [src]="img"
+              alt="article picture..."
+            />
+          }
+        </div>
+      }
+    </div>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Beschreibung</mat-label>
+      <textarea
+        matInput
+        formControlName="description"
+        [(ngModel)]="newArticle.description"
+      ></textarea>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="onSubmit()"
+      routerLink=""
+    >
+      Artikel einstellen
     </button>
-    @if (newArticle.pictures.length > 0) {
-      <div>
-        @for (img of newArticle.pictures; track newArticle.pictures) {
-          <img
-            class="tw-h-80 tw-w-80 tw-object-cover tw-object-center tw-aspect-square"
-            [src]="img"
-            alt="article picture..."
-          />
-        }
-      </div>
-    }
-  </div>
-
-  <mat-form-field appearance="outline" class="full-width">
-    <mat-label>Beschreibung</mat-label>
-    <textarea
-      matInput
-      formControlName="description"
-      [(ngModel)]="newArticle.description"
-    ></textarea>
-  </mat-form-field>
-
-  <button mat-raised-button color="primary" (click)="onSubmit()" routerLink="">
-    Artikel einstellen
-  </button>
-</form>
+  </form>
+</div>

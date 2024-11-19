@@ -1,23 +1,28 @@
-@import "@angular/material/prebuilt-themes/indigo-pink.css";
 .full-width {
   width: 100%;
   margin-bottom: 16px;
 }
 
-mat-form-field {
-  border-radius: 8px;
+:host ::ng-deep .mdc-text-field--outlined {
+  --mdc-outlined-text-field-container-shape: 28px;
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 28px;
+  margin: 10px;
 }
 
 .img-container{
   border: 1px solid #b0b0b0;
-  border-radius: 4px;
+  border-radius: 28px;
   margin-bottom: 40px;
 }
 
 .img-container:hover{
   border-color: black;
+}
+
+img{
+  margin: 10px;
+  border: 1px solid #b0b0b0;
 }
