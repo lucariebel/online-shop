@@ -65,11 +65,11 @@
 #### Schnittstellen
 
 - **Website → searchService:**  
-  Übergabe des Suchworts (z. B. JSON, HTTP-Request).
+  Übergabe des Suchworts.
 - **searchService → Database:**  
-  Datenbankabfrage basierend auf dem Suchwort (SQL/NoSQL).
+  Datenbankabfrage basierend auf dem Suchwort.
 - **Database → searchService:**  
-  Rückgabe der Produktdaten (z. B. JSON).
+  Rückgabe der Produktdaten.
 - **searchService → Website:**  
   Rückgabe einer Produktliste zur Anzeige.
 
@@ -88,9 +88,9 @@
 #### Schnittstellen
 
 - **Website → Userservice:**  
-  Übergabe der Benutzerdaten (z. B. JSON, HTTP-POST).
+  Übergabe der Benutzerdaten.
 - **Userservice → Database:**  
-  Datenbankoperation zum Einfügen neuer Daten (z. B. SQL `INSERT INTO`).
+  Datenbankoperation zum Einfügen neuer Daten.
 - **Database → Userservice:**  
   Rückmeldung über den Erfolg der Operation.
 - **Userservice → Website:**  
@@ -101,16 +101,20 @@
 ![UC03-sequence-diagram](/doc/use-cases/sequence-diagrams/UC03-create-auction.png)
 
 #### Beschreibung des Ablaufs
-1. **Eingabe:** Der Nutzer gibt auf der Website die Auktionsdetails ein (z. B. Titel, Beschreibung, Startpreis) und klickt auf "Auktion erstellen".
+
+1. **Eingabe:** Der Nutzer gibt auf der Website die Auktionsdetails ein (z. B. Titel, Beschreibung, Startpreis) und
+   klickt auf "Auktion erstellen".
 2. **Anfrage:** Die Website sendet die Methode `createAuction()` an den `AuctionService`.
 3. **Datenbankoperation:** Der `AuctionService` fügt die Auktionsdaten in die `Database` ein.
-4. **Antwort:** Die `Database` bestätigt den Eintrag, und der `AuctionService` gibt die Auktionsdetails an die Website zurück, die dem Nutzer eine Bestätigung anzeigt.
+4. **Antwort:** Die `Database` bestätigt den Eintrag, und der `AuctionService` gibt die Auktionsdetails an die Website
+   zurück, die dem Nutzer eine Bestätigung anzeigt.
 
 #### Schnittstellen
+
 - **Website → AuctionService:**  
-  Übergabe der Auktionsdaten (z. B. JSON, HTTP-POST).
+  Übergabe der Auktionsdaten.
 - **AuctionService → Database:**  
-  Datenbankoperation zum Einfügen neuer Auktionsdaten (z. B. SQL `INSERT INTO`).
+  Datenbankoperation zum Einfügen neuer Auktionsdaten.
 - **Database → AuctionService:**  
   Rückmeldung über den Erfolg der Operation.
 - **AuctionService → Website:**  
