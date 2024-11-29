@@ -51,6 +51,75 @@
 
 ## 6. Process View
 
+### Nach Produkten suchen
+
+![UC01-sequence-diagram](/doc/use-cases/sequence-diagrams/UC01-search-product.png)
+
+#### Beschreibung des Ablaufs
+
+1. **Eingabe:** Der Nutzer gibt ein Suchwort auf der Website ein.
+2. **Anfrage:** Die Website sendet die Methode `searchProduct()` an den `searchService`.
+3. **Datenbankabfrage:** Der `searchService` ruft passende Produkte aus der `Database` ab.
+4. **Antwort:** Die Ergebnisse werden über den `searchService` an die Website zurückgegeben und dem Nutzer angezeigt.
+
+#### Schnittstellen
+
+- **Website → searchService:**  
+  Übergabe des Suchworts.
+- **searchService → Database:**  
+  Datenbankabfrage basierend auf dem Suchwort.
+- **Database → searchService:**  
+  Rückgabe der Produktdaten.
+- **searchService → Website:**  
+  Rückgabe einer Produktliste zur Anzeige.
+
+### Benutzerkonto erstellen
+
+![UC02-sequence-diagram](/doc/use-cases/sequence-diagrams/UC02-create-user-account.png)
+
+#### Beschreibung des Ablaufs
+
+1. **Eingabe:** Der Nutzer gibt Benutzername und Passwort auf der Website ein und klickt auf "Registrieren".
+2. **Anfrage:** Die Website sendet die Methode `postUser()` an den `Userservice`.
+3. **Datenbankoperation:** Der `Userservice` fügt die Benutzerdaten in die `Database` ein.
+4. **Antwort:** Die `Database` bestätigt den Eintrag, und der `Userservice` gibt die Benutzerdaten an die Website
+   zurück, die dem Nutzer eine Bestätigung anzeigt.
+
+#### Schnittstellen
+
+- **Website → Userservice:**  
+  Übergabe der Benutzerdaten.
+- **Userservice → Database:**  
+  Datenbankoperation zum Einfügen neuer Daten.
+- **Database → Userservice:**  
+  Rückmeldung über den Erfolg der Operation.
+- **Userservice → Website:**  
+  Rückgabe der Benutzerdaten oder einer Erfolgsnachricht.
+
+### Auktion für ein Produkt erstellen
+
+![UC03-sequence-diagram](/doc/use-cases/sequence-diagrams/UC03-create-auction.png)
+
+#### Beschreibung des Ablaufs
+
+1. **Eingabe:** Der Nutzer gibt auf der Website die Auktionsdetails ein (z. B. Titel, Beschreibung, Startpreis) und
+   klickt auf "Auktion erstellen".
+2. **Anfrage:** Die Website sendet die Methode `createAuction()` an den `AuctionService`.
+3. **Datenbankoperation:** Der `AuctionService` fügt die Auktionsdaten in die `Database` ein.
+4. **Antwort:** Die `Database` bestätigt den Eintrag, und der `AuctionService` gibt die Auktionsdetails an die Website
+   zurück, die dem Nutzer eine Bestätigung anzeigt.
+
+#### Schnittstellen
+
+- **Website → AuctionService:**  
+  Übergabe der Auktionsdaten.
+- **AuctionService → Database:**  
+  Datenbankoperation zum Einfügen neuer Auktionsdaten.
+- **Database → AuctionService:**  
+  Rückmeldung über den Erfolg der Operation.
+- **AuctionService → Website:**  
+  Rückgabe der Auktionsdetails oder einer Erfolgsnachricht.
+
 ## 7. Deployment View
 
 ## 8. Implementation View
