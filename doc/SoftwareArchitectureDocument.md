@@ -39,6 +39,11 @@
 
 ## 3. Architectural Goals and Constraints
 
+1. **Logische Sicht:** Die Plattform besteht aus klar getrennten Modulen wie Benutzerverwaltung, Auktionslogik und Produktdatenbank.
+2. **Prozess-Sicht:** Echtzeit-Updates werden über das Observer-Pattern umgesetzt, sodass alle Nutzer sofort über Änderungen informiert werden.
+3. **Physische Sicht:** Load Balancing und skalierbare Cloud-Server gewährleisten hohe Verfügbarkeit.
+4. **Entwicklungssicht:** Die Entwicklung erfolgt modular mit Angular für das Frontend und ASP.NET für das Backend. SQLite dient als Datenbank, unterstützt durch Caching mit Redis.
+
 ## 4. Use-Case View
 
 ### 4.1 Use-Case Realizations
