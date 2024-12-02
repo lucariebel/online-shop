@@ -9,6 +9,7 @@ namespace Backend.Classes
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ArticleId { get; set; }
         public int UserId { get; set; }
+        public User? User { get; set; }
         public string ArticleName { get; set; }
         public List<string> Pictures { get; set; }
         public string Description { get; set; }

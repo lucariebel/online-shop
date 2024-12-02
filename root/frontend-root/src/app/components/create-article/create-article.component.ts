@@ -6,8 +6,8 @@ import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 import { DirectBuyArticle } from '../../core/interfaces/DirectBuyArticle';
 import { ArticleService } from '../../core/services/article.service';
 import { RouterLink } from '@angular/router';
-import { NgxImageCompressService } from 'ngx-image-compress';
 import { ImageUploadService } from '../../core/services/image-upload.service';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-create-article',
@@ -26,7 +26,8 @@ export class CreateArticleComponent {
   articleForm: FormGroup;
   newArticle: DirectBuyArticle = {
     articleId: 0,
-    userId: 0,
+    userId: this.authService.user.userId,
+    user: this.authService.user,
     articleName: '',
     category: '',
     description: '',
@@ -37,8 +38,8 @@ export class CreateArticleComponent {
   constructor(
     private fb: FormBuilder,
     public articleService: ArticleService,
-    public imageCompress: NgxImageCompressService,
     public imageService: ImageUploadService,
+    public authService: AuthService,
   ) {
     this.articleForm = this.fb.group({
       articleName: [''],

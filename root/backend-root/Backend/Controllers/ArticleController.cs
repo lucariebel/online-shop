@@ -1,5 +1,6 @@
 using Backend.Classes;
 using Backend.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Controllers
@@ -14,8 +15,7 @@ namespace Backend.Controllers
         {
             _articleService = articleService;
         }
-
-
+        
         // Get: api/Article
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DirectBuyArticle>>> GetArticles()
@@ -38,6 +38,7 @@ namespace Backend.Controllers
         }
 
         // Post: api/Article
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<DirectBuyArticle>> PostArticle(DirectBuyArticle directBuyArticle)
         {
@@ -45,6 +46,7 @@ namespace Backend.Controllers
         }
 
         // Put: api/Article
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutArticle(int id, DirectBuyArticle directBuyArticle)
         {
@@ -52,6 +54,7 @@ namespace Backend.Controllers
         }
 
         // Delete: api/Article
+        [Authorize]
         [HttpDelete]
         public async Task<IActionResult> DeleteArticle(int id)
         {

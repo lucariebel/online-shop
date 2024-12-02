@@ -1,5 +1,6 @@
 ﻿using Backend.Classes;
 using Backend.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Controllers
@@ -37,6 +38,7 @@ namespace Backend.Controllers
         }
 
         // Post: api/Auction
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<AuctionArticle>> PostAuction(AuctionArticle auctionArticle)
         {
@@ -44,6 +46,7 @@ namespace Backend.Controllers
         }
 
         // Put: api/Auction
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutArticle(int id, AuctionArticle auctionArticle)
         {
@@ -51,6 +54,7 @@ namespace Backend.Controllers
         }
 
         // Delete: api/Auction
+        [Authorize]
         [HttpDelete]
         public async Task<ActionResult> DeleteAuction(int id)
         {

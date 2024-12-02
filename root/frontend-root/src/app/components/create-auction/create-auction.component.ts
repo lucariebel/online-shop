@@ -17,6 +17,7 @@ import {
   MatDatepickerToggle,
 } from '@angular/material/datepicker';
 import { ImageUploadService } from '../../core/services/image-upload.service';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-create-auction',
@@ -39,7 +40,8 @@ export class CreateAuctionComponent {
   articleForm: FormGroup;
   newAuction: AuctionArticle = {
     articleId: 0,
-    userId: 0,
+    userId: this.authService.user.userId,
+    user: this.authService.user,
     articleName: '',
     category: '',
     endDate: new Date(),
@@ -52,6 +54,7 @@ export class CreateAuctionComponent {
     private fb: FormBuilder,
     public auctionService: AuctionService,
     public imageService: ImageUploadService,
+    public authService: AuthService,
   ) {
     this.articleForm = this.fb.group({
       articleName: [''],
