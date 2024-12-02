@@ -133,3 +133,9 @@
 ## 10. Size and Performance
 
 ## 11. Quality
+#### Die Wichtigsten  Architekturtaktik zusammengefasst:
+- **Performance:** Das System muss unter Last schnell bleiben. Gebote sollen innerhalb von einer Sekunde verarbeitet werden, auch wenn viele Nutzer gleichzeitig aktiv sind.
+
+- **Sicherheit:** Benutzerdaten müssen geschützt sein. Unberechtigte Zugriffe werden erkannt, blockiert und protokolliert.
+
+- **Skalierbarkeit:** Die Plattform soll auch bei 10.000 gleichzeitigen Nutzern stabil laufen. Das ist wichtig für Spitzenlasten und zukünftiges Wachstum.
