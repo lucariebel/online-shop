@@ -1,0 +1,40 @@
+<div class="account-header-container">
+  <div class="account-header-content"></div>
+  @if (authService.isLoggedIn()) {
+    <p>{{ userService.user.username }}</p>
+    <hr />
+    <p>Guthaben: {{ userService.user.cash }}€</p>
+  }
+  @if (!authService.isLoggedIn()) {
+    @if (isSetLogin) {
+      <app-login></app-login>
+    }
+    @if (isSetRegister) {
+      <app-register></app-register>
+    }
+  }
+  <div class="btn-container">
+    @if (!authService.isLoggedIn()) {
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="isSetRegister = !isSetRegister; isSetLogin = false"
+      >
+        Registrieren
+      </button>
+      <button
+        mat-raised-button
+        class="tw-ml-5"
+        color="primary"
+        (click)="isSetLogin = !isSetLogin; isSetRegister = false"
+      >
+        Login
+      </button>
+    }
+    @if (authService.isLoggedIn()) {
+      <button mat-raised-button color="primary" (click)="authService.logout()">
+        Logout
+      </button>
+    }
+  </div>
+</div>

@@ -1,0 +1,30 @@
+.account-header-container{
+  background-color: whitesmoke;
+  height: 300px;
+  width: 200px;
+  margin-top: 10px;
+  border: solid black 3px;
+  border-radius: 28px;
+  padding: 20px;
+  position: absolute;
+  right: 20px;
+  z-index: 100;
+  box-shadow: grey 0 0 20px;
+}
+
+.account-header-content{
+  position: relative;
+}
+
+p{
+  font-size: 20px;
+}
+
+button{
+  border-radius: 28px;
+}
+
+.btn-container{
+  position: absolute;
+  bottom: 20px;
+}

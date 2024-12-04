@@ -1,0 +1,31 @@
+.header-container{
+  top: 0;
+  width: 100%;
+}
+
+.header{
+  background-color: #4DD3EB;
+  padding: 1%;
+  position: relative;
+  height: 5vh;
+}
+
+hr{
+  margin: 0;
+}
+
+button{
+  border-radius: 28px;
+}
+
+.account-btn{
+  position: absolute;
+  right: 10px;
+}
+
+.username{
+  position: absolute;
+  top: 25px;
+  right: 150px;
+  font-size: 20px;
+}
