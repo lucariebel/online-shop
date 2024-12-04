@@ -1,4 +1,6 @@
 .account-header-container{
+  position: fixed;
+  top: 80px;
   background-color: whitesmoke;
   height: 300px;
   width: 200px;
@@ -6,7 +8,6 @@
   border: solid black 3px;
   border-radius: 28px;
   padding: 20px;
-  position: absolute;
   right: 20px;
   z-index: 100;
   box-shadow: grey 0 0 20px;

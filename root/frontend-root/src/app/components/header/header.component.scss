@@ -1,31 +1,40 @@
-.header-container{
+.header-container {
+  position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
+  width: calc(100% - 20px);
+  z-index: 1000;
+  padding: 10px 10px 0;
+  background-color: white;
 }
 
-.header{
-  background-color: #4DD3EB;
+.header {
+  background-color: #5815A1;
   padding: 1%;
   position: relative;
   height: 5vh;
+  border-radius: 28px;
+  border: 2px solid black;
+
 }
 
-hr{
+hr {
   margin: 0;
 }
 
-button{
+button {
   border-radius: 28px;
 }
 
-.account-btn{
+.account-btn {
   position: absolute;
   right: 10px;
 }
 
-.username{
+.username {
   position: absolute;
   top: 25px;
   right: 150px;
   font-size: 20px;
+  color: white;
 }

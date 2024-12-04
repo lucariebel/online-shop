@@ -1,4 +1,4 @@
-<div class="account-header-container">
+<div class="account-header-container" @slideInOut>
   <div class="account-header-content"></div>
   @if (authService.isLoggedIn()) {
     <p>{{ userService.user.username }}</p>
@@ -24,7 +24,7 @@
       </button>
       <button
         mat-raised-button
-        class="tw-ml-5"
+        class="tw-ml-1"
         color="primary"
         (click)="isSetLogin = !isSetLogin; isSetRegister = false"
       >

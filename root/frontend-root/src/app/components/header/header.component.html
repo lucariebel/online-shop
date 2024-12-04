@@ -8,13 +8,14 @@
       mat-raised-button
       class="account-btn"
       color="secondary"
-      (click)="isAccountHeaderExpanded = !isAccountHeaderExpanded"
+      (click)="toggleWindow($event)"
     >
       Konto
     </button>
   </div>
-  <hr />
 </div>
-@if (isAccountHeaderExpanded) {
-  <app-account-header></app-account-header>
+@if (headerService.isAccountHeaderExpanded) {
+  <div>
+    <app-account-header></app-account-header>
+  </div>
 }
