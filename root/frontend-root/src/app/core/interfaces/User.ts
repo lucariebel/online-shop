@@ -6,4 +6,5 @@ export interface User {
   password: string;
   cash: number;
   auctions: AuctionArticle[];
+  authToken?: string;
 }

@@ -7,7 +7,7 @@ import { DirectBuyArticle } from '../../core/interfaces/DirectBuyArticle';
 import { ArticleService } from '../../core/services/article.service';
 import { RouterLink } from '@angular/router';
 import { ImageUploadService } from '../../core/services/image-upload.service';
-import { AuthService } from '../../core/services/auth.service';
+import { UserService } from '../../core/services/user.service';
 
 @Component({
   selector: 'app-create-article',
@@ -39,7 +39,7 @@ export class CreateArticleComponent {
     private fb: FormBuilder,
     public articleService: ArticleService,
     public imageService: ImageUploadService,
-    public authService: AuthService,
+    public authService: UserService,
   ) {
     this.articleForm = this.fb.group({
       articleName: [''],
