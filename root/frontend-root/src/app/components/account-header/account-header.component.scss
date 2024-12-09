@@ -1,9 +1,9 @@
 .account-header-container{
   position: fixed;
-  top: 80px;
+  top: 10vh;
   background-color: whitesmoke;
-  height: 300px;
-  width: 200px;
+  height: 35vh;
+  width: 30vh;
   margin-top: 10px;
   border: solid black 3px;
   border-radius: 28px;
@@ -23,9 +23,18 @@ p{
 
 button{
   border-radius: 28px;
+  height: 5vh;
+  min-width: 10vh;
 }
 
 .btn-container{
   position: absolute;
   bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.register-btn{
+
 }
