@@ -131,6 +131,14 @@
 
 ### 8.1 Overview
 
+#### Ganzes Komponentendiagramm
+
+![component-diagram](/doc/component-diagrams/component-diagram.png)
+
+##### Beschreibung des Ablaufs
+
+
+
 ### 8.2 Layers
 
 ## 9. Data View (optional)
