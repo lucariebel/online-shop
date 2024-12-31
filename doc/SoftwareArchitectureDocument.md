@@ -131,7 +131,57 @@
 
 ### 8.1 Overview
 
+#### Ganzes Komponentendiagramm
+
+![component-diagram](/doc/component-diagrams/component-diagram.png)
+
+##### Beschreibung des Ablaufs
+
+Der Benutzer gibt auf der Webseite des Webshops Benutzername und Passwort ein. Dann drückt er auf den Button 
+`CreateUser`. Ein Benutzer Account wird erstellt. Der Benutzer wird auf die Startseite des Webshops geleitet.
+Er kann nun verschiedene `Buttons` drücken. Ein `Button` heißt `SearchProduct`. Wenn der Benutzer auf den `Button`
+`SearchProduct` drückt, dann kann er ein Produkt suchen. Die gesuchten Produkte werden in einer Liste angezeigt.
+Wenn der Benutzer auf ein Produkt klickt, dann öffnet es sich. Nun kann er auf den Button `Bid` drücken um ein Gebot abzugeben. 
+Ein anderer `Button` heißt `CreateAuction`. Wenn der Benutzer den `Button` anklickt, dann kann er eine Auktion 
+erstellen. Ein anderer `Button` heißt `TrackBiddingAndAuctions`. Wenn der Benutzer diesen `Button` drückt, dann 
+kann er seine Auktionen und Gebote verfolgen.  
+
 ### 8.2 Layers
+
+#### Nach Produkten suchen
+
+![UC01-component-diagram](/doc/component-diagrams/search-product.png)
+
+##### Beschreibung des Ablaufs
+
+Der Benutzer ist auf der Startseite des Webshops und gibt ein Produktname ein. Er drückt auf den Button `SearchProduct`. 
+Die Datenbank bekommt von der Webseite, den vom Benutzer eingegebenen Produktnamen zugeschickt. Die Datenbank gleicht 
+ihre Produktnameneinträge mit den eingegebenen Produktnamen ab. Wenn der eingegebene Produktname übereinstimmt,
+dann gibt die Datenbank die Produkte, welche übereinstimmen in einer Liste an die Webseite zurück. Der Benutzer 
+sieht nun die gesuchten Produkte.
+
+#### Benutzerkonto erstellen
+
+![UC02-component-diagram](/doc/component-diagrams/create-user-account.png)
+
+##### Beschreibung des Ablaufs
+
+Der Benutzer gibt auf der Webseite des Webshops einen Benutzernamen und ein Passwort ein. Dann drückt er auf den Button 
+`CreateUser`. Die Webseite sendet den Benutzernamen und das Passwort an die Datenbank. Die Datenbank speichert
+den Benutzernamen und das Passwort ab. Wenn das passiert ist, ladet die Webseite die Startseite. Somit ist der Benutzer
+auf der Startseite.      
+
+#### Auktion für ein Produkt erstellen
+
+![UC03-component-diagram](/doc/component-diagrams/create-auction.png)
+
+##### Beschreibung des Ablaufs
+
+Der Benutzer befindet sich auf der Startseite des Webshops. Wenn der Benutzer auf den Button `CreateAuction`
+drückt, öffnet sich auf der Webseite ein Formular mit Eingabefeldern. Dort kann der Benutzer Informationen zum Produkt,
+dass er verkaufen möchte, eingeben. Wenn der Benutzer alle Eingabefelder ausgefüllt hat, kann er auf den Button `CreateAuction`
+drücken. Die Webseite sendet die Informationen vom Produkt an die Datenbank. Die Datenbank speichert die Informationen des Produktes.
+Wenn das passiert ist, dann ladet die Webseite wieder die Startseite. Nun ist der Benutzer wieder auf der Startseite.
 
 ## 9. Data View (optional)
 
