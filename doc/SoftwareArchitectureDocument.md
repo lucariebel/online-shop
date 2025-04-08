@@ -208,6 +208,9 @@ Wenn das passiert ist, dann ladet die Webseite wieder die Startseite. Nun ist de
 ## 9. Data View (optional)
 
 ## 10. Size and Performance
+- **Maximale Nutzeranzahl:** 5.000 aktive Nutzer gleichzeitig
+- **Lade Zeiten:** Die Ladezeiten der Browser Seiten sollt jederzeit unter einer Sekunde bleiben.
+
 
 ## 11. Quality
 #### Die Wichtigsten  Architekturtaktik zusammengefasst:
