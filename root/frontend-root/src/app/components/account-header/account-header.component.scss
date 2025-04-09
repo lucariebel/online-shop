@@ -1,9 +1,9 @@
-.account-header-container{
+.account-header-container {
   position: fixed;
   top: 10vh;
   background-color: whitesmoke;
-  height: 35vh;
-  width: 30vh;
+  height: 40vh;
+  width: 15vw;
   margin-top: 10px;
   border: solid black 3px;
   border-radius: 28px;
@@ -13,21 +13,21 @@
   box-shadow: grey 0 0 20px;
 }
 
-.account-header-content{
+.account-header-content {
   position: relative;
 }
 
-p{
+p {
   font-size: 20px;
 }
 
-button{
+button {
   border-radius: 28px;
   height: 5vh;
-  min-width: 10vh;
+  min-width: 5vw;
 }
 
-.btn-container{
+.btn-container {
   position: absolute;
   bottom: 20px;
   display: flex;
@@ -35,6 +35,4 @@ button{
   align-items: center;
 }
 
-.register-btn{
-
-}
+.register-btn {}
