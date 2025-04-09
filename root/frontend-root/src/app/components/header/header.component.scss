@@ -12,10 +12,9 @@
   background-color: #5815A1;
   padding: 1vh;
   position: relative;
-  height: 5vh;
+  height: 2rem;
   border-radius: 28px;
   border: 2px solid black;
-
 }
 
 hr {
@@ -25,8 +24,8 @@ hr {
 button {
   border-radius: 28px;
   position: absolute;
-  height: 5vh;
-  width: 10vh;
+  height: 2rem;
+  width: 5rem;
   font-size: 2vh;
 }
 
@@ -37,16 +36,15 @@ button {
 
 .username {
   position: absolute;
-  top: 25px;
-  right: 150px;
+  top: 0.7rem;
+  right: 20rem;
   font-size: 20px;
   color: white;
 }
 
-button{
-}
+button {}
 
-.home-btn{
+.home-btn {
   position: absolute;
   left: 1vh;
 }

@@ -2,20 +2,15 @@
   <div class="header">
     <button mat-raised-button color="secondary" routerLink="/">Home</button>
     @if (authService.isLoggedIn()) {
-      <p class="username">Hallo {{ userService.user.username }}!</p>
+    <p class="username">Hallo {{ userService.user.username }}!</p>
     }
-    <button
-      mat-raised-button
-      class="account-btn"
-      color="secondary"
-      (click)="toggleWindow($event)"
-    >
+    <button mat-raised-button class="account-btn" color="secondary" (click)="toggleWindow($event)">
       Konto
     </button>
   </div>
 </div>
 @if (headerService.isAccountHeaderExpanded) {
-  <div>
-    <app-account-header></app-account-header>
-  </div>
+<div>
+  <app-account-header></app-account-header>
+</div>
 }
