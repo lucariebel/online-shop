@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CreateAuctionComponent } from './components/create-auction/create-auction.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ArticleSearchListComponent } from './components/article-search-list/article-search-list.component';
 
 export const routes: Routes = [
   {
@@ -25,5 +26,9 @@ export const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+  },
+  {
+    path: 'search',
+    component: ArticleSearchListComponent,
   },
 ];

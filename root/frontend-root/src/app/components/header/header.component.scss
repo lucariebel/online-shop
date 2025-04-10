@@ -48,3 +48,25 @@ button {}
   position: absolute;
   left: 1vh;
 }
+
+:host ::ng-deep .mdc-text-field--outlined {
+  --mdc-outlined-text-field-container-shape: 28px;
+  height: 2rem;
+  background-color: white;
+  border-radius: 28px;
+}
+
+:host ::ng-deep .mdc-text-field--outlined .mat-mdc-form-field-infix,
+.mdc-text-field--no-label .mat-mdc-form-field-infix {
+  padding-top: 0.25rem;
+}
+
+.search-form {
+  position: absolute;
+  left: 7rem;
+  width: fit-content;
+}
+
+form {
+  height: 2rem;
+}
