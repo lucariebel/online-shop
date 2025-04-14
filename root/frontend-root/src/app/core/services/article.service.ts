@@ -10,10 +10,24 @@ import { Article } from '../interfaces/Article';
 })
 export class ArticleService {
   url: string = environment.apiUrl + '/article';
-
-  directBuyArticles: DirectBuyArticle[] = [];
+  directBuyArticles: DirectBuyArticle[] = []; // Dieses Array wird zwischengespeichert
 
   constructor(private http: HttpClient) {}
+
+  // Methode zum Laden der Artikel (mit Caching)
+  async loadDirectBuyArticles(): Promise<void> {
+    if (this.directBuyArticles.length === 0) {
+      // Vermeide wiederholte Requests
+      try {
+        this.directBuyArticles = await firstValueFrom(
+          this.http.get<DirectBuyArticle[]>(this.url), // Achte auf <DirectBuyArticle[]>
+        ); // Speichere die Daten im Service
+      } catch (error) {
+        console.error('Fehler beim Laden der Artikel:', error);
+        throw error; // Weiterwerfen, um in der Komponente zu handhaben
+      }
+    }
+  }
 
   async getArticles(): Promise<any> {
     try {

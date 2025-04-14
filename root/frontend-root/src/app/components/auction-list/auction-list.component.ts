@@ -12,6 +12,7 @@ import { SlicePipe } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { AuctionService } from '../../core/services/auction.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-auction-list',
@@ -27,6 +28,7 @@ import { AuctionService } from '../../core/services/auction.service';
     MatCardTitle,
     MatCardSubtitle,
     EurFormatPipe,
+    RouterLink,
   ],
   templateUrl: './auction-list.component.html',
 })
