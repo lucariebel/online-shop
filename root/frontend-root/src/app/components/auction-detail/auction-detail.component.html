@@ -1,0 +1,33 @@
+<div class="tw-max-w-5xl tw-mx-auto tw-p-4 tw-grid md:tw-grid-cols-2 tw-gap-8">
+  <!-- Bilder -->
+  <div class="tw-flex tw-flex-wrap">
+    <div
+      *ngFor="let image of auction?.pictures; let i = index"
+      class="tw-w-full tw-p-2"
+    >
+      <!-- Verwende src statt ngSrc -->
+      <img
+        [src]="image"
+        alt="{{ auction?.articleName }} - Bild {{ i + 1 }}"
+        class="tw-rounded-lg tw-w-full tw-object-cover tw-aspect-square"
+      />
+    </div>
+  </div>
+
+  <!-- Info -->
+  <div>
+    <h1 class="tw-text-2xl tw-font-bold tw-mb-2">
+      {{ auction?.articleName }}
+    </h1>
+    <p class="tw-text-xl tw-text-green-700 tw-mb-4">
+      {{ auction?.bid || 0 | eurFormat }}
+    </p>
+    <p class="tw-mb-6">{{ auction?.description }}</p>
+
+    <button
+      class="tw-bg-yellow-400 tw-text-black tw-font-bold tw-px-6 tw-py-3 tw-rounded-lg hover:tw-bg-yellow-500"
+    >
+      Bieten
+    </button>
+  </div>
+</div>

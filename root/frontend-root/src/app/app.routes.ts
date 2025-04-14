@@ -4,6 +4,8 @@ import { HomeComponent } from './components/home/home.component';
 import { CreateAuctionComponent } from './components/create-auction/create-auction.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
+import { AuctionDetailComponent } from './components/auction-detail/auction-detail.component';
 
 export const routes: Routes = [
   {
@@ -25,5 +27,13 @@ export const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+  },
+  {
+    path: 'article/:id',
+    component: ArticleDetailComponent,
+  },
+  {
+    path: 'auction/:id',
+    component: AuctionDetailComponent,
   },
 ];
