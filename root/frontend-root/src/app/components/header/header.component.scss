@@ -21,7 +21,7 @@ hr {
   margin: 0;
 }
 
-button {
+.header-button {
   border-radius: 28px;
   position: absolute;
   height: 2rem;
@@ -42,9 +42,44 @@ button {
   color: white;
 }
 
-button {}
+.search-button {
+  border-radius: 28px;
+  position: absolute;
+  height: 2rem;
+  width: 5rem;
+  font-size: 2vh;
+  top: 0;
+  left: 15.5rem;
+}
 
 .home-btn {
   position: absolute;
   left: 1vh;
+}
+
+:host ::ng-deep .mdc-text-field--outlined {
+  --mdc-outlined-text-field-container-shape: 28px;
+  height: 2rem;
+  background-color: white;
+  border-radius: 28px;
+}
+
+:host ::ng-deep .mdc-text-field--outlined .mat-mdc-form-field-infix,
+.mdc-text-field--no-label .mat-mdc-form-field-infix {
+  padding-top: 0.25rem;
+}
+
+.search-form {
+  position: absolute;
+  left: 7rem;
+  width: fit-content;
+}
+
+form {
+  height: 2rem;
+}
+
+.search-input {
+  position: absolute;
+  top: 0;
 }

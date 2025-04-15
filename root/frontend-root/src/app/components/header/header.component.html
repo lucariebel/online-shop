@@ -1,10 +1,26 @@
 <div class="header-container">
   <div class="header">
-    <button mat-raised-button color="secondary" routerLink="/">Home</button>
+    <button mat-raised-button class="header-button" color="secondary" routerLink="/">Home</button>
+    <div class="search-form">
+      <table>
+        <tr>
+          <td>
+            <form [formGroup]="articleSearchForm">
+              <mat-form-field class="search-input" appearance="outline">
+                <input matInput placeholder="[Artikelname]" formControlName="searchString">
+              </mat-form-field>
+            </form>
+          </td>
+          <td>
+            <button mat-raised-button class="search-button" (click)="submitArticleSearch()">Suchen</button>
+          </td>
+        </tr>
+      </table>
+    </div>
     @if (authService.isLoggedIn()) {
     <p class="username">Hallo {{ userService.user.username }}!</p>
     }
-    <button mat-raised-button class="account-btn" color="secondary" (click)="toggleWindow($event)">
+    <button mat-raised-button class="account-btn header-button" color="secondary" (click)="toggleWindow($event)">
       Konto
     </button>
   </div>
