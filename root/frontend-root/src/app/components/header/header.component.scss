@@ -21,7 +21,7 @@ hr {
   margin: 0;
 }
 
-button {
+.header-button {
   border-radius: 28px;
   position: absolute;
   height: 2rem;
@@ -42,7 +42,15 @@ button {
   color: white;
 }
 
-button {}
+.search-button {
+  border-radius: 28px;
+  position: absolute;
+  height: 2rem;
+  width: 5rem;
+  font-size: 2vh;
+  top: 0;
+  left: 15.5rem;
+}
 
 .home-btn {
   position: absolute;
@@ -69,4 +77,9 @@ button {}
 
 form {
   height: 2rem;
+}
+
+.search-input {
+  position: absolute;
+  top: 0;
 }
