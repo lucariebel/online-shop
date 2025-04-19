@@ -26,7 +26,9 @@ namespace Backend.Services
         // Get
         public async Task<ActionResult<IEnumerable<DirectBuyArticle>>> GetArticles()
         {
-            return await _context.Articles.ToListAsync();
+            return await _context.Articles
+                         .Where(article => article.IsAvailable)
+                         .ToListAsync();
         }
 
         // Get/{id}

@@ -33,6 +33,7 @@ export class CreateArticleComponent {
     description: '',
     pictures: [] as string[],
     price: 0,
+    isAvailable: true,
   };
 
   constructor(
