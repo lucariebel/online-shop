@@ -18,6 +18,7 @@ namespace Backend.Classes
     public partial class DirectBuyArticle : Article
     {
         public float Price { get; set; }
+        public bool IsAvailable { get; set; }
     }
 
     public partial class AuctionArticle : Article

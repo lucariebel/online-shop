@@ -64,4 +64,22 @@ export class ArticleService {
       console.error(error);
     }
   }
+
+  async putArticle(articleId: number, article: DirectBuyArticle): Promise<any> {
+    try {
+      const updatedArticle: DirectBuyArticle = await firstValueFrom(
+        this.http.put<DirectBuyArticle>(`${this.url}/${articleId}`, article)
+      );
+  
+      const index = this.directBuyArticles.findIndex(a => a.articleId === articleId);
+      if (index !== -1) {
+        this.directBuyArticles.splice(index, 1);
+      }
+  
+      return updatedArticle;
+    } catch (error) {
+      console.error('Fehler beim Aktualisieren des Artikels:', error);
+      throw error;
+    }
+  }
 }
