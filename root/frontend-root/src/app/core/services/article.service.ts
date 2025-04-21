@@ -73,7 +73,7 @@ export class ArticleService {
   
       const index = this.directBuyArticles.findIndex(a => a.articleId === articleId);
       if (index !== -1) {
-        this.directBuyArticles[index] = updatedArticle;
+        this.directBuyArticles.splice(index, 1);
       }
   
       return updatedArticle;
@@ -81,5 +81,5 @@ export class ArticleService {
       console.error('Fehler beim Aktualisieren des Artikels:', error);
       throw error;
     }
-  }  
+  }
 }
