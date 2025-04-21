@@ -64,4 +64,19 @@ export class AuctionService {
       console.error(error);
     }
   }
+
+  async putAuction(auction: AuctionArticle): Promise<any> {
+    try {
+      const data: AuctionArticle = await firstValueFrom(
+        this.http.put<AuctionArticle>(
+          `${this.url}/${auction.articleId}`,
+          auction,
+        ),
+      );
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }
