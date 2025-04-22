@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Services
 {
-    public partial interface IArticleService
+    public interface IArticleService
     {
         Task<ActionResult<IEnumerable<DirectBuyArticle>>> GetArticles();
         Task<ActionResult<DirectBuyArticle>> GetArticle(int id);
@@ -14,7 +14,7 @@ namespace Backend.Services
         Task<IActionResult> PutArticle(int id, DirectBuyArticle directBuyArticle);
         Task<ActionResult> DeleteArticle(int id);
     }
-    public partial class ArticleService : ControllerBase, IArticleService
+    public class ArticleService : ControllerBase, IArticleService
     {
         private readonly WebShop24DbContext _context;
 
