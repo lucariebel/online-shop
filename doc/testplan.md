@@ -2,10 +2,10 @@
 
 ## Cover Page
 
-**Project:** WebShop24  
-**Test Plan for:** Webshop Frontend and Backend  
-**Responsible:** Luca Riebel  
-**Date:** 28.04.2025
+**Projekt:** WebShop24  
+**Testplan für:** Webshop Frontend und Backend  
+**Verantwortlich:** Luca Riebel  
+**Datum:** 28.04.2025
 
 ---
 
@@ -13,22 +13,22 @@
 
 ## 1.1 Purpose
 
-This test plan describes the testing strategy for the *WebShop24* project. It defines the types of tests, test coverage, tools, and procedures to ensure quality.
+Dieser Testplan beschreibt die Teststrategie für das Projekt *WebShop24*. Er definiert die eingesetzten Testarten, die angestrebte Testabdeckung, verwendete Werkzeuge sowie das Vorgehen zur Qualitätssicherung.
 
 ## 1.2 Scope
 
-The test plan covers the tests of the **Frontend** (Angular), the **Backend** (ASP.NET), and the **REST APIs**.  
-The following types of tests are included:
-- Unit Tests
-- API Tests (Integration Tests)
+Der Testplan umfasst Tests des **Frontends** (Angular), des **Backends** (ASP.NET) sowie der **REST-APIs**.  
+Folgende Testarten werden eingesetzt:
+- Unit-Tests
+- API-Tests (Integrationstests)
 
-Excluded from coverage:
-- Load and Performance Tests
-- UI/End-to-End Tests
+Nicht abgedeckt:
+- Last- und Performancetests
+- UI-/End-to-End-Tests
 
 ## 1.3 Intended Audience
 
-This test plan is intended for the developers and testers of the project, as well as project documentation supervisors.
+Dieser Plan richtet sich an das Entwickler- und Testteam sowie an betreuende Personen im Projektkontext.
 
 ---
 
@@ -36,21 +36,21 @@ This test plan is intended for the developers and testers of the project, as wel
 
 ## 2.1 Evaluation Mission
 
-The goal is to detect errors early, ensure correct functionality, and prevent critical defects that could affect user experience.
+Ziel ist es, Fehler frühzeitig zu identifizieren, die korrekte Funktion der Anwendung sicherzustellen und schwerwiegende Defekte zu vermeiden, die die Benutzererfahrung negativ beeinflussen könnten.
 
 ## 2.2 Test Motivators
 
-- Ensure core functionality (displaying products, creating auctions, placing bids).
-- Minimize technical risks (APIs working correctly, services communicating reliably).
-- Meet project requirements within limited time and resources.
+- Sicherstellung zentraler Funktionen (Produkte anzeigen, Auktionen erstellen, Gebote abgeben)
+- Minimierung technischer Risiken (z. B. nicht funktionierende Schnittstellen)
+- Einhaltung von Qualitätsstandards trotz begrenzter Zeit und Ressourcen
 
 ---
 
 # 3. Target Test Items
 
-- Angular Frontend components (services, pipes, logic).
-- ASP.NET Backend components (controllers, services, models).
-- RESTful APIs (GET, POST, PUT, DELETE endpoints).
+- Angular-Frontend-Komponenten (Services, Pipes, Logik)
+- ASP.NET-Backend-Komponenten (Controller, Services, Modelle)
+- RESTful-APIs (GET, POST, PUT, DELETE-Endpunkte)
 
 ---
 
@@ -59,15 +59,15 @@ The goal is to detect errors early, ensure correct functionality, and prevent cr
 ## 4.1 Test Inclusions
 
 - **Frontend:**
-  - Unit tests with Jasmine and Karma.
+  - Unit-Tests mit Jasmine und Karma
 
 - **Backend:**
-  - Unit tests with NUnit.
-  - API tests with **Swagger** (manual).
+  - Unit-Tests mit NUnit
+  - API-Tests über **Swagger** (manuell)
 
 ## 4.2 Test Exclusions
 
-- No load, performance, or UI tests.
+- Keine Lasttests, Performance- oder UI-Tests vorgesehen
 
 ---
 
@@ -77,13 +77,13 @@ The goal is to detect errors early, ensure correct functionality, and prevent cr
 
 ### 5.1.1 Unit Testing
 
-- **Frontend:** Jasmine/Karma unit tests for individual components, services, and pipes.
-- **Backend:** NUnit tests for methods and classes.
+- **Frontend:** Unit-Tests für Komponenten, Services und Pipes mit Jasmine/Karma
+- **Backend:** Unit-Tests für Klassen und Methoden mit NUnit
 
-### 5.1.2 Integration Testing (API Tests)
+### 5.1.2 Integration Testing (API-Tests)
 
-- Testing REST API endpoints using **Swagger** (manual).
-- Verifying correct status codes, response times, and contents.
+- Manuelles Testen der REST-Endpunkte über **Swagger**
+- Prüfung auf Statuscodes, Antwortzeiten und Datenstruktur
 
 ---
 
@@ -91,79 +91,78 @@ The goal is to detect errors early, ensure correct functionality, and prevent cr
 
 ## 6.1 Entry Criteria
 
-- All necessary features are implemented and deployable.
-- Local testing possible.
+- Alle geplanten Funktionen sind implementiert und lokal ausführbar
+- Entwicklerumgebung für Tests ist eingerichtet
 
 ## 6.2 Exit Criteria
 
-- 20–30% test coverage in frontend and backend achieved.
-- All critical unit and API tests pass without errors.
+- Testabdeckung von 20–30 % im Frontend und Backend erreicht
+- Alle wichtigen Unit- und API-Tests bestehen fehlerfrei
 
 ---
 
 # 7. Deliverables
 
-- **Test Reports:**
-  - Jasmine/Karma reports for frontend tests.
-  - NUnit reports for backend tests.
-  - Swagger (manual verification of API endpoints).
+- **Testberichte:**
+  - Jasmine/Karma-Reports für Frontend
+  - NUnit-Reports für Backend
+  - Swagger-Checkliste (manuelle API-Prüfung)
 
-- **Test Coverage Reports:**
-  - Frontend: Automatically generated by Karma/Jasmine Coverage.
-  - Backend: Automatically generated by NUnit and Coverage tools.
+- **Testabdeckungsberichte:**
+  - Automatisch generiert durch Karma (Frontend) und Coverage-Tools (Backend)
 
-- **Bug Documentation:**
-  - Issues documented in the repository (Git).
+- **Fehlerdokumentation:**
+  - Verwaltung über Git (Issues und Commit-Referenzen)
 
 ---
 
 # 8. Testing Workflow
 
-- Developers write unit tests alongside feature development.
-- Tests are executed locally on developer PCs (VS Code, Visual Studio).
-- Tests are run manually before each commit.
-- Weekly review of test status.
-- No automated CI/CD testing (manual local execution only).
+- Entwickler schreiben Unit-Tests parallel zur Implementierung
+- Tests werden lokal am Entwickler-PC (z. B. mit VS Code oder Visual Studio) ausgeführt
+- Vor jedem Commit werden die Tests manuell durchgeführt
+- Wöchentlicher Überblick über den Teststatus
+- Keine CI/CD-Automatisierung, nur manuelle Testausführung
 
 ---
 
 # 9. Environmental Needs
 
-- **Frontend Testing Environment:**
+- **Frontend-Testumgebung:**
   - Node.js + Angular CLI
-  - Jasmine and Karma
+  - Jasmine, Karma
 
-- **Backend Testing Environment:**
-  - .NET 7 or higher
+- **Backend-Testumgebung:**
+  - .NET 7 oder höher
   - NUnit, Swagger
 
 - **Hardware:**
-  - Local developer machines
+  - Lokale Entwicklerrechner
 
 ---
 
 # 10. Responsibilities, Staffing, and Training Needs
 
-- **Test Responsible:** Luca Riebel
-- **Test Case Maintenance:** Each developer maintains their own tests and reports in the repository.
-- **Training Needs:** None required, basic knowledge in Jasmine, Karma, NUnit is assumed.
+- **Testverantwortlich:** Luca Riebel
+- **Pflege der Testfälle:** Jeder Entwickler ist für die eigenen Tests verantwortlich
+- **Schulungen:** Keine erforderlich – Grundkenntnisse in Jasmine, Karma und NUnit werden vorausgesetzt
 
 ---
 
 # 11. Risks, Dependencies, Assumptions, and Constraints
 
-| Risk | Action |
-|:-----|:-------|
-| Low test coverage due to time constraints | Focus on core functionalities |
-| Faulty testing environments | Early setup and tool verification |
-| Changes in API structure | Close coordination between frontend and backend teams |
+| Risiko                              | Maßnahme                                 |
+|------------------------------------|-------------------------------------------|
+| Geringe Testabdeckung durch Zeitdruck | Konzentration auf Kernfunktionen         |
+| Fehlerhafte Testumgebung             | Frühe Einrichtung und Toolprüfung         |
+| Änderungen an API-Struktur           | Enge Abstimmung zwischen Frontend/Backend |
 
 ---
 
 # Summary
 
-- Focus on unit and API tests.
-- Target 20–30% test coverage.
-- Local testing on developer machines.
-- Reports via Jasmine, Karma, NUnit, and manual verification with Swagger.
-- No CI/CD integration planned.
+- Fokus auf Unit- und API-Tests
+- Ziel: 20–30 % Testabdeckung
+- Manuelle Tests auf lokalen Entwicklerrechnern
+- Dokumentation über Git und automatische Reports (Jasmine, Karma, NUnit)
+- Keine CI/CD-Integration
