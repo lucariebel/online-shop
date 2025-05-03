@@ -42,7 +42,7 @@ export class ArticleDetailComponent implements OnInit {
   
     try {
       const response: any = await this.articleService.putArticle(this.article.articleId, this.article);
-      console.log('Artikel wurde als gekauft markiert und erfolgreich aktualisiert.', response);
+      console.log('Artikel wurde als gekauft markiert und erfolgreich aktualisiert.');
       this.router.navigate(['/']);
     } catch (error: any) {
       console.error('Fehler beim Aktualisieren des Artikelstatus:', error);
