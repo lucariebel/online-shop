@@ -24,7 +24,7 @@
     </p>
     <p class="tw-mb-6">{{ auction?.description }}</p>
 
-    <p class="tw-mb-6">{{ auction?.endDate }}</p>
+    <p class="tw-mb-6">Endet am {{ auction?.endDate | date: 'dd.MM.yyyy' }}</p>
 
     <button
       class="tw-bg-yellow-400 tw-text-black tw-font-bold tw-px-6 tw-py-3 tw-rounded-lg hover:tw-bg-yellow-500"
