@@ -4,11 +4,12 @@ import { ActivatedRoute } from '@angular/router';
 import { AuctionService } from '../../core/services/auction.service';
 import { EurFormatPipe } from '../../core/pipes/eur-format.pipe';
 import { NgForOf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-auction-detail',
   standalone: true,
-  imports: [EurFormatPipe, NgForOf],
+  imports: [CommonModule, EurFormatPipe, NgForOf],
   templateUrl: './auction-detail.component.html',
 })
 export class AuctionDetailComponent implements OnInit {
