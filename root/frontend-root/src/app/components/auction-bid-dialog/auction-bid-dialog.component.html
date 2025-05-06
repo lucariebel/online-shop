@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>Gebot abgeben</h2>
+<mat-dialog-content>
+  <p class="tw-font-bold tw-text-black">
+    {{ this.data?.bid || 0 | eurFormat }} aktuelles Gebot
+  </p>
+  <hr />
+  <p class="tw-font-bold tw-text-black">
+    Ihr Gebot (mindestens {{ minBid | eurFormat }})
+  </p>
+  <form class="bid">
+    <mat-form-field class="example-full-width">
+      <span matTextPrefix>EUR &nbsp;</span>
+      <input
+        autofocus
+        type="number"
+        matInput
+        [(ngModel)]="userBid"
+        name="bid"
+        [min]="minBid"
+        required
+      />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Abbrechen</button>
+  <button mat-button [disabled]="userBid < minBid" (click)="submitBid()">
+    Gebot abgeben
+  </button>
+</mat-dialog-actions>
