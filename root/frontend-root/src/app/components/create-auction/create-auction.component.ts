@@ -18,6 +18,7 @@ import {
 } from '@angular/material/datepicker';
 import { ImageUploadService } from '../../core/services/image-upload.service';
 import { UserService } from '../../core/services/user.service';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 @Component({
   selector: 'app-create-auction',
@@ -32,6 +33,7 @@ import { UserService } from '../../core/services/user.service';
     MatDatepickerToggle,
     MatDatepicker,
     FormsModule,
+    NgxMaterialTimepickerModule,
   ],
   templateUrl: './create-auction.component.html',
   styleUrl: './create-auction.component.scss',
@@ -45,6 +47,7 @@ export class CreateAuctionComponent {
     articleName: '',
     category: '',
     endDate: new Date(),
+    endTime: '',
     description: '',
     pictures: [] as string[],
     bid: 0,
@@ -84,5 +87,8 @@ export class CreateAuctionComponent {
         this.newAuction.pictures.push(item);
       });
     });
+  }
+  onTimeChange(event: any) {
+    this.newAuction.endTime = event.target.value;
   }
 }
