@@ -38,6 +38,22 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Uhrzeit</mat-label>
+      <input
+        matInput
+        [ngxTimepicker]="timePicker"
+        [(ngModel)]="newAuction.endTime"
+        (change)="onTimeChange($event)"
+      />
+      <ngx-material-timepicker-toggle
+        matIconSuffix
+        class="tw-mr-1"
+        [for]="timePicker"
+      ></ngx-material-timepicker-toggle>
+      <ngx-material-timepicker #timePicker></ngx-material-timepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
       <mat-label>Startpreis</mat-label>
       <input
         matInput
