@@ -9,7 +9,8 @@ namespace Backend.Services
         List<Article> AddSorting(Sorting sorting);
         List<Article> ClearFilter();
         List<Article> ClearSorting();
-        List<DirectBuyArticle> GetDirectBuyArticleSearch(string name);
+        List<AuctionArticle> SearchAuctionArticle(string name);
+        List<DirectBuyArticle> SearchDirectBuyArticle(string name);
     }
 
     public partial class SearchService : ISearchService
@@ -39,11 +40,18 @@ namespace Backend.Services
             throw new NotImplementedException();
         }
 
-        public List<DirectBuyArticle> GetDirectBuyArticleSearch(string name)
+        public List<DirectBuyArticle> SearchDirectBuyArticle(string name)
         {
             List<DirectBuyArticle> directBuyArticles = [];
             directBuyArticles = _context.Articles.Where(a => a.ArticleName.ToLower().Contains(name.ToLower())).ToList();
             return directBuyArticles;
+        }
+
+        public List<AuctionArticle> SearchAuctionArticle(string name)
+        {
+            List<AuctionArticle> auctionArticles = [];
+            auctionArticles = _context.Auctions.Where(a => a.ArticleName.ToLower().Contains(name.ToLower())).ToList();
+            return auctionArticles;
         }
     }
 }

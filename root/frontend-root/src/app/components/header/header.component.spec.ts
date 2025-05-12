@@ -97,7 +97,7 @@ describe('HeaderComponent', () => {
     await fixture.whenStable();
     expect(mockSearchService.articleSearchString).toBe('Test');
     expect(mockSearchService.searchArticle).toHaveBeenCalledWith('Test');
-    expect(mockRouter.navigateByUrl).toHaveBeenCalledWith('search');
+    expect(mockRouter.navigateByUrl).toHaveBeenCalledWith('article-search');
     expect(component.searchService.articles).toEqual(mockArticles);
   });
 });

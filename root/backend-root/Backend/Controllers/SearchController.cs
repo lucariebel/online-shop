@@ -15,11 +15,25 @@ namespace Backend.Controllers
         }
 
         [HttpGet("Article")]
-        public ActionResult<List<DirectBuyArticle>> GetDirectBuyArticleSearch([FromQuery] string search)
+        public ActionResult<List<DirectBuyArticle>> SearchDirectBuyArticle([FromQuery] string search)
         {
             try
             {
-                return Ok(_searchService.GetDirectBuyArticleSearch(search));
+                return Ok(_searchService.SearchDirectBuyArticle(search));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+                throw;
+            }
+        }
+
+        [HttpGet("Auction")]
+        public ActionResult<List<DirectBuyArticle>> SearchAuctionArticle([FromQuery] string search)
+        {
+            try
+            {
+                return Ok(_searchService.SearchAuctionArticle(search));
             }
             catch (Exception ex)
             {

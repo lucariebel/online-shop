@@ -17,6 +17,22 @@
         </tr>
       </table>
     </div>
+    <div class="auction-search-form">
+      <table>
+        <tr>
+          <td>
+            <form [formGroup]="auctionSearchForm">
+              <mat-form-field class="search-input" appearance="outline">
+                <input matInput placeholder="[Auktionsname]" formControlName="searchString">
+              </mat-form-field>
+            </form>
+          </td>
+          <td>
+            <button mat-raised-button class="search-button" (click)="submitAuctionSearch()">Suchen</button>
+          </td>
+        </tr>
+      </table>
+    </div>
     @if (authService.isLoggedIn()) {
     <p class="username">Hallo {{ userService.user.username }}!</p>
     }

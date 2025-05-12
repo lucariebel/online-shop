@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { firstValueFrom } from 'rxjs';
 import { DirectBuyArticle } from '../../core/interfaces/DirectBuyArticle';
+import { AuctionArticle } from '../../core/interfaces/AuctionArticle';
 
 @Component({
   selector: 'app-header',
@@ -28,6 +29,7 @@ import { DirectBuyArticle } from '../../core/interfaces/DirectBuyArticle';
 })
 export class HeaderComponent {
   articleSearchForm: FormGroup;
+  auctionSearchForm: FormGroup;
 
   constructor(
     public authService: AuthService,
@@ -38,6 +40,9 @@ export class HeaderComponent {
     private router: Router,
   ) {
     this.articleSearchForm = this.fb.group({
+      searchString: '',
+    });
+    this.auctionSearchForm = this.fb.group({
       searchString: '',
     });
   }
@@ -52,12 +57,25 @@ export class HeaderComponent {
     console.log(this.articleSearchForm.value.searchString);
     this.searchService.articleSearchString =
       this.articleSearchForm.value.searchString;
-    this.router.navigateByUrl('search');
+    this.router.navigateByUrl('article-search');
     firstValueFrom(
       this.searchService.searchArticle(this.searchService.articleSearchString),
     ).then((data) => {
       console.log(data as DirectBuyArticle[]);
       this.searchService.articles = data as DirectBuyArticle[];
+    });
+  }
+
+  submitAuctionSearch() {
+    console.log(this.auctionSearchForm.value.searchString);
+    this.searchService.auctionSearchString =
+      this.auctionSearchForm.value.searchString;
+    this.router.navigateByUrl('auction-search');
+    firstValueFrom(
+      this.searchService.searchAuction(this.searchService.auctionSearchString),
+    ).then((data) => {
+      console.log(data as AuctionArticle[]);
+      this.searchService.auctions = data as AuctionArticle[];
     });
   }
 }

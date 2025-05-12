@@ -1,20 +1,20 @@
 <div class="tw-flex-row tw-flex tw-gap-4 tw-flex-wrap tw-p-10">
   @for (
-  article of searchService.articles;
-  track article.articleId
+  auction of searchService.auctions;
+  track auction.articleId
   ) {
-  <div class="tw-w-32 tw-cursor-pointer" [routerLink]="['/article', article.articleId]">
+  <div class="tw-w-32 tw-cursor-pointer" [routerLink]="['/auction', auction.articleId]">
     <mat-card class="tw-flex-1">
       <mat-card-content>
         <div>
           <img class="tw-h-auto tw-w-full tw-object-cover tw-object-center tw-aspect-square !tw-rounded-lg"
-            mat-card-image [src]="article.pictures[0]" alt="Article Picture" />
+            mat-card-image [src]="auction.pictures[0]" alt="Article Picture" />
         </div>
       </mat-card-content>
       <mat-card-header class="!tw-pb-4">
-        <mat-card-subtitle class="!tw-text-black !tw-font-normal tw-h-11 !tw-line-clamp-2">{{ article.articleName }}
+        <mat-card-subtitle class="!tw-text-black !tw-font-normal tw-h-11 !tw-line-clamp-2">{{ auction.articleName }}
         </mat-card-subtitle>
-        <mat-card-title>{{ article.price | eurFormat }}</mat-card-title>
+        <mat-card-title>{{ auction.bid| eurFormat }}</mat-card-title>
       </mat-card-header>
     </mat-card>
   </div>

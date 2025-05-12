@@ -7,6 +7,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ArticleSearchListComponent } from './components/article-search-list/article-search-list.component';
 import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
 import { AuctionDetailComponent } from './components/auction-detail/auction-detail.component';
+import { AuctionSearchListComponent } from './components/auction-search-list/auction-search-list.component';
 
 export const routes: Routes = [
   {
@@ -30,8 +31,12 @@ export const routes: Routes = [
     component: RegisterComponent,
   },
   {
-    path: 'search',
+    path: 'article-search',
     component: ArticleSearchListComponent,
+  },
+  {
+    path: 'auction-search',
+    component: AuctionSearchListComponent,
   },
   {
     path: 'article/:id',
