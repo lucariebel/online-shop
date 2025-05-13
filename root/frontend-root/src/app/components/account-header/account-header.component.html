@@ -3,7 +3,21 @@
   @if (authService.isLoggedIn()) {
     <p>{{ userService.user.username }}</p>
     <hr />
-    <p>Guthaben: {{ userService.user.cash }}€</p>
+    <p>Guthaben: {{ userService.user.cash || 0 | eurFormat }}</p>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Geld hinzufügen</mat-label>
+      <input matInput type="number" [(ngModel)]="cashToAdd" />
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      [disabled]="!cashToAdd || this.userService.user.cash + cashToAdd <= 0"
+      color="primary"
+      (click)="addCash()"
+    >
+      Hinzufügen
+    </button>
   }
   @if (!authService.isLoggedIn()) {
     @if (isSetLogin) {

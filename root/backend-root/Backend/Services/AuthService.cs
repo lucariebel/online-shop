@@ -43,6 +43,8 @@ public partial class AuthService : ControllerBase, IAuthService
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(_tokenKey), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
+            user.UserId = User.UserId;
+            user.Cash = User.Cash;
             return Results.Ok(new { token = tokenHandler.WriteToken(token), user });// Das Token zurückgeben
 
         }
