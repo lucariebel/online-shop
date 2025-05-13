@@ -2,16 +2,29 @@ import { Component, ElementRef, HostListener } from '@angular/core';
 import { UserService } from '../../core/services/user.service';
 import { AuthService } from '../../core/services/auth.service';
 import { MatButton } from '@angular/material/button';
-import { RouterLink } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { HeaderService } from '../../core/services/header.service';
+import { EurFormatPipe } from '../../core/pipes/eur-format.pipe';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInput } from '@angular/material/input';
 
 @Component({
   selector: 'app-account-header',
   standalone: true,
-  imports: [MatButton, RouterLink, LoginComponent, RegisterComponent],
+  imports: [
+    MatButton,
+    LoginComponent,
+    RegisterComponent,
+    EurFormatPipe,
+    MatFormField,
+    FormsModule,
+    MatInput,
+    MatLabel,
+    ReactiveFormsModule,
+  ],
   templateUrl: './account-header.component.html',
   styleUrl: './account-header.component.scss',
   animations: [
@@ -29,6 +42,7 @@ import { HeaderService } from '../../core/services/header.service';
 export class AccountHeaderComponent {
   isSetRegister = false;
   isSetLogin = false;
+  cashToAdd: number | undefined;
 
   constructor(
     public userService: UserService,
@@ -44,6 +58,24 @@ export class AccountHeaderComponent {
       !this.eRef.nativeElement.contains(event.target)
     ) {
       this.headerService.isAccountHeaderExpanded = false;
+    }
+  }
+
+  async addCash() {
+    if (
+      this.cashToAdd &&
+      this.userService.user &&
+      this.userService.user.cash + this.cashToAdd >= 0
+    ) {
+      const updatedUser = {
+        ...this.userService.user,
+        cash: (this.userService.user.cash += this.cashToAdd),
+      };
+      try {
+        await this.userService.putUser(updatedUser);
+      } catch (error) {
+        console.error('Fehler beim Aktualisieren des Geldes:', error);
+      }
     }
   }
 }
