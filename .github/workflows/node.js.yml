@@ -1,8 +1,6 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+name: Angular Build
 
-name: Node.js CI
-
+# {1}
 on:
   push:
     branches: ["main"]
@@ -10,26 +8,32 @@ on:
     branches: ["main"]
 
 jobs:
-  build:
+  angular:
+    name: Angular Build
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version: [20]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+      # {2}
+      - name: Checkout the source code
+        uses: actions/checkout@v3
+
+      # {3}
+      - name: Setup Node.js $
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-          # Disable cache since package-lock.json is missing
+          node-version: $
           cache: "npm"
           cache-dependency-path: ./root/frontend-root/package-lock.json
-      - run: npm install
-        working-directory: ./root/frontend-root
-      - run: npm run build --if-present
-        working-directory: ./root/frontend-root
-      - run: npm test
-        working-directory: ./root/frontend-root
+
+      # {4}
+      - name: Install dependencies
+        run: npm ci
+      # {5}
+      - name: Run tests
+        run: npm run test:ci
+      # {6}
+      - name: Build
+        run: npm run build
