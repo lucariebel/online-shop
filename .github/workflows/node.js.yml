@@ -32,6 +32,10 @@ jobs:
       - name: Install dependencies
         run: npm i
         working-directory: ./root/frontend-root
+      - name: Install Google Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
       # {5}
       - name: Run tests
         run: npm run test

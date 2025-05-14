@@ -1,44 +1,33 @@
-// karma.conf.js
 module.exports = function (config) {
-  const isCI = process.env.CI === "true";
-
   config.set({
     basePath: "",
-    frameworks: ["jasmine", "@angular-devkit/build-angular"],
-    plugins: [
-      require("karma-jasmine"),
-      require("karma-chrome-launcher"),
-      require("karma-jasmine-html-reporter"),
-      require("karma-coverage"),
-      require("@angular-devkit/build-angular/plugins/karma"),
+    frameworks: ["jasmine"],
+    files: [
+      // Hier werden alle Test-Dateien eingebunden
+      "src/**/*.spec.ts",
     ],
-    client: {
-      jasmine: {
-        // you can add configuration options for Jasmine here
-      },
-      clearContext: false, // leave Jasmine Spec Runner output visible in browser
+    preprocessors: {
+      "src/**/*.spec.ts": ["@angular-devkit/build-angular"],
     },
-    jasmineHtmlReporter: {
-      suppressAll: true, // removes the duplicated traces
-    },
-    coverageReporter: {
-      dir: require("path").join(__dirname, "./coverage"),
-      subdir: ".",
-      reporters: [{ type: "html" }, { type: "text-summary" }],
-    },
-    reporters: ["progress", "kjhtml"],
-    port: 9876,
-    colors: true,
-    logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: isCI ? ["ChromeHeadlessCI"] : ["Chrome"],
+    plugins: [
+      "karma-jasmine",
+      "karma-chrome-launcher",
+      "karma-jasmine-html-reporter",
+      "@angular-devkit/build-angular",
+    ],
+    browsers: ["ChromeHeadless"], // Headless Chrome für CI verwenden
     customLaunchers: {
-      ChromeHeadlessCI: {
+      ChromeHeadlessNoSandbox: {
         base: "ChromeHeadless",
         flags: ["--no-sandbox", "--disable-gpu"],
       },
     },
-    singleRun: isCI,
+    reporters: ["progress", "kjhtml"], // Fortschrittsanzeige und HTML-Reporter
+    port: 9876,
+    colors: true,
+    logLevel: config.LOG_INFO,
+    autoWatch: true,
+    singleRun: false, // Auf true setzen, wenn Tests nur einmal laufen sollen
     restartOnFileChange: true,
   });
 };
