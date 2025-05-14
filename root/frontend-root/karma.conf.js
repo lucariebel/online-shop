@@ -10,10 +10,10 @@ module.exports = function (config) {
       "src/**/*.spec.ts": ["@angular-devkit/build-angular"],
     },
     plugins: [
-      "karma-jasmine",
-      "karma-chrome-launcher",
-      "karma-jasmine-html-reporter",
-      "@angular-devkit/build-angular",
+      require("karma-jasmine"),
+      require("karma-chrome-launcher"),
+      require("karma-jasmine-html-reporter"),
+      require("@angular-devkit/build-angular"),
     ],
     browsers: ["ChromeHeadless"], // Headless Chrome für CI verwenden
     customLaunchers: {
