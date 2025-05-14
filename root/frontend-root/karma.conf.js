@@ -6,9 +6,6 @@ module.exports = function (config) {
       // Hier werden alle Test-Dateien eingebunden
       "src/**/*.spec.ts",
     ],
-    preprocessors: {
-      "src/**/*.spec.ts": ["@angular-devkit/build-angular"],
-    },
     plugins: [
       require("karma-jasmine"),
       require("karma-chrome-launcher"),
