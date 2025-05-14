@@ -37,6 +37,12 @@ namespace Backend.Tests
             _service = new ArticleService(_context);
         }
 
+        [TearDown]
+        public void Cleanup()
+        {
+            _context.Dispose();
+        }
+
         [Test]
         public async Task GetArticles_ReturnsOnlyAvailable()
         {
