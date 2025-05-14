@@ -34,7 +34,7 @@ jobs:
         working-directory: ./root/frontend-root
       # {5}
       - name: Run tests
-        run: npm run test:ci
+        run: npm run test
         working-directory: ./root/frontend-root
       # {6}
       - name: Build
