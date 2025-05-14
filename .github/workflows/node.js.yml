@@ -30,7 +30,7 @@ jobs:
 
       # {4}
       - name: Install dependencies
-        run: npm ci
+        run: npm i
       # {5}
       - name: Run tests
         run: npm run test:ci
