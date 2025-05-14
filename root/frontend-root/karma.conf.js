@@ -8,7 +8,14 @@ module.exports = function (config) {
       require("karma-jasmine-html-reporter"),
       require("@angular-devkit/build-angular/plugins/karma"),
     ],
-    browsers: ["ChromeHeadless"],
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: "ChromeHeadless",
+        flags: ["--no-sandbox", "--disable-gpu"],
+      },
+    },
+    browsers: ["ChromeHeadlessNoSandbox"],
+
     reporters: ["progress", "kjhtml"],
     port: 9876,
     colors: true,
