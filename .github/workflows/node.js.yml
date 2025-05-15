@@ -12,8 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [20]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [22]
     steps:
       # {2}
       - name: Checkout the source code
@@ -41,6 +40,18 @@ jobs:
       - name: Build
         run: npm run build
         working-directory: ./root/frontend-root
+
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Restore dependencies
+        run: dotnet restore ./root/backend-root
+      - name: Build
+        run: dotnet build ./root/backend-root --no-restore
+      - name: Test
+        run: dotnet test ./root/backend-root --no-build --verbosity normal
 
   deploy:
     name: Deploy Frontend
@@ -72,3 +83,16 @@ jobs:
         with:
           name: app-build
           path: ./root/frontend-root/dist
+
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Publish
+        run: dotnet publish ./root/backend-root -c Debug -o ./publish
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-build
+          path: ./publish
