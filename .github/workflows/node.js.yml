@@ -44,7 +44,7 @@ jobs:
 
       # {7}
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: frontend-build
           path: ./root/frontend-root/dist/
@@ -58,7 +58,7 @@ jobs:
 
     steps:
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: frontend-build
           path: ./dist
@@ -67,5 +67,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./dist # The folder the action should deploy
-          branch: gh-pages # The branch the action should deploy to
           clean: true # Automatically remove deleted files from the deploy branch
