@@ -1,0 +1,98 @@
+name: WebShop24 CI/CD
+
+on:
+  push:
+    branches: ["main", "ci-cd-test"]
+  pull_request:
+    branches: ["main", "ci-cd-test"]
+
+jobs:
+  build:
+    name: Angular Build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [22]
+    steps:
+      # {2}
+      - name: Checkout the source code
+        uses: actions/checkout@v3
+
+      # {3}
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+          cache-dependency-path: ./root/frontend-root/package-lock.json
+
+      # {4}
+      - name: Install dependencies
+        run: npm i
+        working-directory: ./root/frontend-root
+
+      # {5}
+      - name: Run tests
+        run: npm run test --watch=false --browsers=ChromeHeadlessNoSandbox
+        working-directory: ./root/frontend-root
+
+      # {6}
+      - name: Build
+        run: npm run build
+        working-directory: ./root/frontend-root
+
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Restore dependencies
+        run: dotnet restore ./root/backend-root
+      - name: Build
+        run: dotnet build ./root/backend-root --no-restore
+      - name: Test
+        run: dotnet test ./root/backend-root --no-build --verbosity normal
+
+  deploy:
+    name: Deploy WebShop24
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+          cache-dependency-path: ./root/frontend-root/package-lock.json
+
+      - name: Install dependencies
+        run: npm i
+        working-directory: ./root/frontend-root
+
+      - name: Build
+        run: npm run build
+        working-directory: ./root/frontend-root
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-build
+          path: ./root/frontend-root/dist
+
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Publish
+        run: dotnet publish ./root/backend-root -c Debug -o ./publish
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-build
+          path: ./publish
