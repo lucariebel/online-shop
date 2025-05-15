@@ -42,37 +42,33 @@ jobs:
         run: npm run build
         working-directory: ./root/frontend-root
 
-      # {7}
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: frontend-build
-          path: ./root/frontend-root/dist/
-          retention-days: 1
-
   deploy:
     name: Deploy Frontend
     needs: build
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20]
 
     steps:
-      - name: Debug
-        run: |
-          echo "Current ref: ${{ github.ref }}"
-          echo "Event name: ${{ github.event_name }}"
-
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
+      - uses: actions/checkout@v4
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          name: frontend-build
-          path: ./dist
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+          cache-dependency-path: ./root/frontend-root/package-lock.json
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Install dependencies
+        run: npm i
+        working-directory: ./root/frontend-root
+
+      - name: Build
+        run: npm run build
+        working-directory: ./root/frontend-root
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
         with:
-          folder: ./dist # The folder the action should deploy
-          branch: gh-pages # The branch the action should deploy to
-          clean: true # Automatically remove deleted files from the deploy branch
+          name: app-build
+          path: ./root/frontend-root/dist
