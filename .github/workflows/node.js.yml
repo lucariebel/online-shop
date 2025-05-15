@@ -1,6 +1,5 @@
-name: Angular Build
+name: WebShop24 CI/CD
 
-# {1}
 on:
   push:
     branches: ["main", "ci-cd-test"]
@@ -8,7 +7,7 @@ on:
     branches: ["main", "ci-cd-test"]
 
 jobs:
-  angular:
+  build:
     name: Angular Build
     runs-on: ubuntu-latest
     strategy:
@@ -32,11 +31,41 @@ jobs:
       - name: Install dependencies
         run: npm i
         working-directory: ./root/frontend-root
+
       # {5}
       - name: Run tests
         run: npm run test --watch=false --browsers=ChromeHeadlessNoSandbox
         working-directory: ./root/frontend-root
+
       # {6}
       - name: Build
         run: npm run build
         working-directory: ./root/frontend-root
+
+      # {7}
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: frontend-build
+          path: ./root/frontend-root/dist/
+          retention-days: 1
+
+  deploy:
+    name: Deploy Frontend
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: frontend-build
+          path: ./dist
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./dist # The folder the action should deploy
+          branch: gh-pages # The branch the action should deploy to
+          clean: true # Automatically remove deleted files from the deploy branch
