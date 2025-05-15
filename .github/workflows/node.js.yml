@@ -54,7 +54,7 @@ jobs:
         run: dotnet test ./root/backend-root --no-build --verbosity normal
 
   deploy:
-    name: Deploy Frontend
+    name: Deploy WebShop24
     needs: build
     runs-on: ubuntu-latest
     strategy:
@@ -81,7 +81,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: app-build
+          name: frontend-build
           path: ./root/frontend-root/dist
 
       - uses: actions/checkout@v4
@@ -94,5 +94,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: app-build
+          name: backend-build
           path: ./publish
