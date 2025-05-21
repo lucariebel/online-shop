@@ -42,8 +42,8 @@ export class CreateAuctionComponent {
   articleForm: FormGroup;
   newAuction: AuctionArticle = {
     articleId: 0,
-    userId: this.userService.user.userId,
-    user: this.userService.user,
+    ownerId: this.userService.user.userId,
+    owner: this.userService.user,
     articleName: '',
     category: '',
     endDate: new Date(),

@@ -26,8 +26,8 @@ export class CreateArticleComponent {
   articleForm: FormGroup;
   newArticle: DirectBuyArticle = {
     articleId: 0,
-    userId: this.authService.user.userId,
-    user: this.authService.user,
+    ownerId: this.authService.user.userId,
+    owner: this.authService.user,
     articleName: '',
     category: '',
     description: '',

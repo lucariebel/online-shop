@@ -28,9 +28,9 @@ namespace Backend.Tests
                 );
 
             _context.Articles.AddRange(
-                new DirectBuyArticle { ArticleId = 1, ArticleName = "Artikel 1", IsAvailable = true, Description = "test", Pictures = ["abc"], Price = 100, UserId = 1 },
-                new DirectBuyArticle { ArticleId = 2, ArticleName = "Artikel 2", IsAvailable = false, Description = "test", Pictures = ["abc"], Price = 100, UserId = 1 },
-                new DirectBuyArticle { ArticleId = 3, ArticleName = "Artikel 3", IsAvailable = true, Description = "test", Pictures = ["abc"], Price = 100, UserId = 1 }
+                new DirectBuyArticle { ArticleId = 1, ArticleName = "Artikel 1", IsAvailable = true, Description = "test", Pictures = ["abc"], Price = 100, OwnerId = 1 },
+                new DirectBuyArticle { ArticleId = 2, ArticleName = "Artikel 2", IsAvailable = false, Description = "test", Pictures = ["abc"], Price = 100, OwnerId = 1 },
+                new DirectBuyArticle { ArticleId = 3, ArticleName = "Artikel 3", IsAvailable = true, Description = "test", Pictures = ["abc"], Price = 100, OwnerId = 1 }
             );
             _context.SaveChanges();
 
@@ -72,7 +72,7 @@ namespace Backend.Tests
         [Test]
         public async Task PostArticle_AddsNewArticle()
         {
-            var newArticle = new DirectBuyArticle { ArticleId = 10, ArticleName = "Neuer Artikel", IsAvailable = true, Description = "test", Pictures = ["abc"], Price = 100, UserId = 1 };
+            var newArticle = new DirectBuyArticle { ArticleId = 10, ArticleName = "Neuer Artikel", IsAvailable = true, Description = "test", Pictures = ["abc"], Price = 100, OwnerId = 1 };
             var result = await _service.PostArticle(newArticle);
 
             var createdResult = result.Result as CreatedAtActionResult;

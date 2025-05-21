@@ -26,5 +26,10 @@ namespace Backend.Classes
         public int WinnerId { get; set; }
         public DateTime EndDate { get; set; }
         public float Bid { get; set; }
+
+        public bool IsEnded()
+        {
+            return DateTime.UtcNow > EndDate;
+        }
     }
 }

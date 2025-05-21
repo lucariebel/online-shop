@@ -1,10 +1,11 @@
 import { AuctionArticle } from './AuctionArticle';
+import { DirectBuyArticle } from './DirectBuyArticle';
 
 export interface User {
   userId: number;
   username: string;
   password: string;
   cash: number;
-  auctions: AuctionArticle[];
+  participatedAuctionIds: number[];
   authToken?: string;
 }
