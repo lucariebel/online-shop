@@ -50,6 +50,20 @@ export class AuctionDetailComponent implements OnInit {
           bid: result,
           winnerId: this.userService.user.userId,
         };
+        if (
+          !this.userService.user.participatedAuctionIds.includes(
+            this.userService.user.userId,
+          )
+        ) {
+          this.userService.user.participatedAuctionIds.push(
+            updatedAuction.articleId,
+          );
+          try {
+            await this.userService.putUser(this.userService.user);
+          } catch (error) {
+            console.error('Fehler beim Aktualisieren der Auktion:', error);
+          }
+        }
         console.log(updatedAuction);
         try {
           await this.auctionService.putAuction(updatedAuction);

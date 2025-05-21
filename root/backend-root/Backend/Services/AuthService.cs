@@ -45,6 +45,7 @@ public partial class AuthService : ControllerBase, IAuthService
             var token = tokenHandler.CreateToken(tokenDescriptor);
             user.UserId = User.UserId;
             user.Cash = User.Cash;
+            user.ParticipatedAuctionIds = User.ParticipatedAuctionIds;
             return Results.Ok(new { token = tokenHandler.WriteToken(token), user });// Das Token zurückgeben
 
         }

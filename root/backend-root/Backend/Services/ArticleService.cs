@@ -62,7 +62,7 @@ namespace Backend.Services
         // Put
         public async Task<IActionResult> PutArticle(int id, DirectBuyArticle directBuyArticle)
         {
-            if (id != directBuyArticle.ArticleId)
+            if (id != directBuyArticle.ArticleId || directBuyArticle.IsAvailable == false)
             {
                 return BadRequest();
             }

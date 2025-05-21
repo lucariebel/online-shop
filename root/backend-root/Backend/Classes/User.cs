@@ -11,10 +11,7 @@ namespace Backend.Classes
         public string Username { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
         public float? Cash { get; set; }
-        public ICollection<DirectBuyArticle>? BoughtArticles { get; set; }
-        public ICollection<AuctionArticle>? ParticipatedAuctions { get; set; }
-        public ICollection<AuctionArticle>? WonAuctions { get; set; }
-        // public ICollection<AuctionArticle>? OwnAuctions { get; set; } = new List<AuctionArticle>();
+        public List<int> ParticipatedAuctionIds { get; set; } = new List<int>();
 
         public void AddAuction(List<Auction> auctions, Auction auction)
         {

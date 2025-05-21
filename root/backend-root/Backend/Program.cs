@@ -32,6 +32,8 @@ builder.Services.AddControllers().AddJsonOptions(opt =>
 });
 builder.Services.AddDbContext<WebShop24DbContext>(options => options.UseSqlite(
     builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddHostedService<AuctionMonitorService>();
 builder.Services.AddScoped<IArticleService, ArticleService>();
 builder.Services.AddScoped<IAuctionService, AuctionService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
