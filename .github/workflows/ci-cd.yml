@@ -2,23 +2,21 @@ name: WebShop24 CI/CD
 
 on:
   push:
-    branches: ["main", "ci-cd-test"]
+    branches: ["main"]
   pull_request:
-    branches: ["main", "ci-cd-test"]
+    branches: ["main"]
 
 jobs:
   build:
-    name: Angular Build
+    name: WebShop24 Build and Test
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [22]
     steps:
-      # {2}
       - name: Checkout the source code
         uses: actions/checkout@v3
 
-      # {3}
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
@@ -26,17 +24,14 @@ jobs:
           cache: "npm"
           cache-dependency-path: ./root/frontend-root/package-lock.json
 
-      # {4}
       - name: Install dependencies
         run: npm i
         working-directory: ./root/frontend-root
 
-      # {5}
       - name: Run tests
         run: npm run test --watch=false --browsers=ChromeHeadlessNoSandbox
         working-directory: ./root/frontend-root
 
-      # {6}
       - name: Build
         run: npm run build
         working-directory: ./root/frontend-root
