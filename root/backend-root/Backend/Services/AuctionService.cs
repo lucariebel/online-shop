@@ -53,6 +53,7 @@ namespace Backend.Services
         // Post
         public async Task<ActionResult<AuctionArticle>> PostAuction(AuctionArticle auctionArticle)
         {
+            auctionArticle.Owner = null;
             _context.Auctions.Add(auctionArticle);
             await _context.SaveChangesAsync();
 

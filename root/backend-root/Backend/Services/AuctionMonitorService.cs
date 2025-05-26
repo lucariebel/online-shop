@@ -32,9 +32,9 @@ namespace Backend.Services
             var now = DateTime.UtcNow;
 
             var expiredAuctions = context.Auctions.ToList()
-                                    .Where(a => a.EndDate < now).ToList();
+                                    .Where(a => a.EndDate < now && a.IsEnded == false).ToList();
 
-            foreach (var auction in expiredAuctions.Where(a => a.IsEnded == false))
+             foreach (var auction in expiredAuctions)
             {
                 auction.IsEnded = true;
                 User? user = await context.Users.FindAsync(auction.WinnerId);
@@ -42,6 +42,7 @@ namespace Backend.Services
                 {
                     continue;
                 }
+                await RemoveAuctionsInParticipations(auction.ArticleId);
                 user.Cash -= auction.Bid;
                 context.Users.Update(user);
                 await context.SaveChangesAsync();
@@ -58,8 +59,9 @@ namespace Backend.Services
             foreach(var user in users)
             {
                 user.ParticipatedAuctionIds.Remove(auctionId);
+                context.Users.Update(user);
+                await context.SaveChangesAsync();
             }
-            await context.SaveChangesAsync();
         }
     }
 }

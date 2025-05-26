@@ -44,6 +44,49 @@ namespace Backend.Tests
                         .Returns(scopeFactoryMock.Object);
 
             _serviceProvider = providerMock.Object;
+
+            _dbContext.Users.AddRange(new User
+            {
+                UserId = 1,
+                Cash = 100,
+                Username = "tester",
+                Password = "pw",
+                ParticipatedAuctionIds = new List<int> { 1 }
+            },
+            new User
+            {
+                UserId = 2,
+                Cash = 100,
+                Username = "tester2",
+                Password = "pw",
+                ParticipatedAuctionIds = new List<int> { 2 }
+            });
+
+            _dbContext.Set<AuctionArticle>().AddRange(new AuctionArticle
+            {
+                ArticleId = 1,
+                ArticleName = "Alte Uhr",
+                OwnerId = 2,
+                Pictures = new List<string>(),
+                Description = "Beschreibung",
+                WinnerId = 1,
+                EndDate = DateTime.UtcNow.AddMinutes(-10),
+                Bid = 25,
+                IsEnded = false
+            }, new AuctionArticle
+            {
+                ArticleId = 2,
+                ArticleName = "Alte Uhr",
+                OwnerId = 1,
+                Pictures = new List<string>(),
+                Description = "Beschreibung",
+                WinnerId = 2,
+                EndDate = DateTime.UtcNow.AddMinutes(10),
+                Bid = 50,
+                IsEnded = false
+            }
+            );
+            _dbContext.SaveChanges();
         }
 
         private async Task InvokeCheckAuctionsAsync(AuctionMonitorService service)
@@ -58,42 +101,32 @@ namespace Backend.Tests
         public async Task CheckAuctionsAsync_ShouldMarkAuctionAsEnded_AndDeductCash()
         {
             // Arrange
-            var user = new User
-            {
-                UserId = 1,
-                Cash = 100,
-                Username = "tester",
-                Password = "pw"
-            };
 
-            var auction = new AuctionArticle
-            {
-                ArticleId = 1,
-                ArticleName = "Alte Uhr",
-                OwnerId = 2,
-                Pictures = new List<string>(),
-                Description = "Beschreibung",
-                WinnerId = 1,
-                EndDate = DateTime.UtcNow.AddMinutes(-10),
-                Bid = 25,
-                IsEnded = false
-            };
-
-            _dbContext.Users.Add(user);
-            _dbContext.Set<AuctionArticle>().Add(auction);
-            await _dbContext.SaveChangesAsync();
+            
 
             var service = new AuctionMonitorService(_serviceProvider);
 
+
             // Act
             await InvokeCheckAuctionsAsync(service);
+            await service.RemoveAuctionsInParticipations(1);
+            
 
             // Assert
-            var updatedAuction = _dbContext.Set<AuctionArticle>().First();
-            var updatedUser = _dbContext.Users.First();
+            var updatedAuction1 = _dbContext.Auctions.Find(1);
+            var updatedAuction2 = _dbContext.Auctions.Find(2);
+            var updatedUser1 = _dbContext.Users.Find(1);
+            var updatedUser2 = _dbContext.Users.Find(2);
 
-            Assert.IsTrue(updatedAuction.IsEnded);
-            Assert.AreEqual(75, updatedUser.Cash);
+            Assert.Multiple(() =>
+            {
+                Assert.That(updatedAuction1.IsEnded, Is.True);
+                Assert.That(updatedUser1.Cash, Is.EqualTo(75));
+                Assert.That(updatedUser1.ParticipatedAuctionIds.Count, Is.EqualTo(0));
+                Assert.That(updatedAuction2.IsEnded, Is.False);
+                Assert.That(updatedUser2.Cash, Is.EqualTo(100));
+                Assert.That(updatedUser2.ParticipatedAuctionIds[0], Is.EqualTo(2));
+            });
         }
     }
 }
