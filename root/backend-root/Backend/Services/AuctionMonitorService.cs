@@ -43,6 +43,7 @@ namespace Backend.Services
                     continue;
                 }
                 await RemoveAuctionsInParticipations(auction.ArticleId);
+                user.ParticipatedAuctionIds.Remove(auction.ArticleId);
                 user.Cash -= auction.Bid;
                 context.Users.Update(user);
                 await context.SaveChangesAsync();
