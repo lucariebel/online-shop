@@ -57,7 +57,7 @@ describe('CreateArticleComponent', () => {
       username: 'TestUser',
       password: '123',
       cash: 100,
-      auctions: {} as AuctionArticle[],
+      participatedAuctionIds: [],
     };
     fixture.detectChanges();
   });

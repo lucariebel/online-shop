@@ -2,7 +2,12 @@ import { Component } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
+import {
+  ReactiveFormsModule,
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+} from '@angular/forms';
 import { DirectBuyArticle } from '../../core/interfaces/DirectBuyArticle';
 import { ArticleService } from '../../core/services/article.service';
 import { RouterLink } from '@angular/router';
@@ -18,6 +23,7 @@ import { UserService } from '../../core/services/user.service';
     MatButtonModule,
     ReactiveFormsModule,
     RouterLink,
+    FormsModule,
   ],
   templateUrl: './create-article.component.html',
   styleUrls: ['./create-article.component.scss'],
