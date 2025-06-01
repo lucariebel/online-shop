@@ -13,16 +13,18 @@
 
 ## 1.1 Purpose
 
-Dieser Testplan beschreibt die Teststrategie für das Projekt *WebShop24*. Er definiert die eingesetzten Testarten, die angestrebte Testabdeckung, verwendete Werkzeuge sowie das Vorgehen zur Qualitätssicherung.
+Dieser Testplan beschreibt die Teststrategie für das Projekt _WebShop24_. Er definiert die eingesetzten Testarten, die angestrebte Testabdeckung, verwendete Werkzeuge sowie das Vorgehen zur Qualitätssicherung.
 
 ## 1.2 Scope
 
 Der Testplan umfasst Tests des **Frontends** (Angular), des **Backends** (ASP.NET) sowie der **REST-APIs**.  
 Folgende Testarten werden eingesetzt:
+
 - Unit-Tests
 - API-Tests (Integrationstests)
 
 Nicht abgedeckt:
+
 - Last- und Performancetests
 - UI-/End-to-End-Tests
 
@@ -59,6 +61,7 @@ Ziel ist es, Fehler frühzeitig zu identifizieren, die korrekte Funktion der Anw
 ## 4.1 Test Inclusions
 
 - **Frontend:**
+
   - Unit-Tests mit Jasmine und Karma
 
 - **Backend:**
@@ -104,11 +107,13 @@ Ziel ist es, Fehler frühzeitig zu identifizieren, die korrekte Funktion der Anw
 # 7. Deliverables
 
 - **Testberichte:**
+
   - Jasmine/Karma-Reports für Frontend
   - NUnit-Reports für Backend
   - Swagger-Checkliste (manuelle API-Prüfung)
 
 - **Testabdeckungsberichte:**
+
   - Automatisch generiert durch Karma (Frontend) und Coverage-Tools (Backend)
 
 - **Fehlerdokumentation:**
@@ -129,10 +134,12 @@ Ziel ist es, Fehler frühzeitig zu identifizieren, die korrekte Funktion der Anw
 # 9. Environmental Needs
 
 - **Frontend-Testumgebung:**
+
   - Node.js + Angular CLI
   - Jasmine, Karma
 
 - **Backend-Testumgebung:**
+
   - .NET 7 oder höher
   - NUnit, Swagger
 
@@ -151,18 +158,18 @@ Ziel ist es, Fehler frühzeitig zu identifizieren, die korrekte Funktion der Anw
 
 # 11. Risks, Dependencies, Assumptions, and Constraints
 
-| Risiko                              | Maßnahme                                 |
-|------------------------------------|-------------------------------------------|
-| Geringe Testabdeckung durch Zeitdruck | Konzentration auf Kernfunktionen         |
-| Fehlerhafte Testumgebung             | Frühe Einrichtung und Toolprüfung         |
-| Änderungen an API-Struktur           | Enge Abstimmung zwischen Frontend/Backend |
+| Risiko                                | Maßnahme                                  |
+| ------------------------------------- | ----------------------------------------- |
+| Geringe Testabdeckung durch Zeitdruck | Konzentration auf Kernfunktionen          |
+| Fehlerhafte Testumgebung              | Frühe Einrichtung und Toolprüfung         |
+| Änderungen an API-Struktur            | Enge Abstimmung zwischen Frontend/Backend |
 
 ---
 
 # Summary
 
 - Fokus auf Unit- und API-Tests
-- Ziel: 20–30 % Testabdeckung
+- Ziel: 80–85 % Testabdeckung
 - Manuelle Tests auf lokalen Entwicklerrechnern
 - Dokumentation über Git und automatische Reports (Jasmine, Karma, NUnit)
 - Keine CI/CD-Integration
