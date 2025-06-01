@@ -3,6 +3,7 @@ import { NgForOf } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ArticleService } from '../../core/services/article.service';
 import { DirectBuyArticle } from '../../core/interfaces/DirectBuyArticle';
+import { UserService } from '../../core/services/user.service';
 import { EurFormatPipe } from '../../core/pipes/eur-format.pipe';
 
 @Component({
@@ -18,6 +19,7 @@ export class ArticleDetailComponent implements OnInit {
     public articleService: ArticleService,
     private route: ActivatedRoute,
     private router: Router,
+    private userService: UserService,
   ) {}
 
   async ngOnInit() {
@@ -37,15 +39,31 @@ export class ArticleDetailComponent implements OnInit {
     if (!this.article) {
       return;
     }
+      
+    const articlePrice = this.article.price;
+    if (articlePrice == null) {
+      console.error("Kein Preis für diesen Artikel definiert!");
+      return;
+    }
+  
+    const currentUser = this.userService.user;
+    if (currentUser.cash == null || currentUser.cash < articlePrice) {
+      console.error("Nicht genügend Guthaben vorhanden!");
+      return;
+    }
+  
+    currentUser.cash -= articlePrice;
   
     this.article.isAvailable = false;
   
     try {
-      const response: any = await this.articleService.putArticle(this.article.articleId, this.article);
-      console.log('Artikel wurde als gekauft markiert und erfolgreich aktualisiert.');
+      await this.userService.putUser(currentUser);
+      await this.articleService.putArticle(this.article.articleId, this.article);
+        
+      console.log('Artikel wurde als gekauft markiert und der Betrag wurde abgezogen.');
       this.router.navigate(['/']);
     } catch (error: any) {
-      console.error('Fehler beim Aktualisieren des Artikelstatus:', error);
+      console.error('Fehler beim Kauf des Artikels oder Aktualisieren des Nutzerkontos:', error);
     }
   }
-}
+}  
