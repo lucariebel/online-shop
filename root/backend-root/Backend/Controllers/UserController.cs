@@ -10,14 +10,14 @@ namespace Backend.Controllers;
 
 public class UserController : ControllerBase
 {
-    
+
     private readonly IUserService _userService;
 
     public UserController(IUserService userService)
     {
         _userService = userService;
     }
-    
+
     // Put: api/Article
     [Authorize]
     [HttpPut("{id}")]

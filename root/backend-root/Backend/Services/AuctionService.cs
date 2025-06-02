@@ -36,7 +36,7 @@ namespace Backend.Services
         {
             AuctionArticle auctionArticle = await _context.Auctions.FindAsync(id);
 
-            if(auctionArticle == null || auctionArticle.IsEnded == true)
+            if (auctionArticle == null || auctionArticle.IsEnded == true)
             {
                 return NotFound();
             }
@@ -94,7 +94,7 @@ namespace Backend.Services
             {
                 return NotFound();
             }
-            if(auctionArticle.IsEnded == true)
+            if (auctionArticle.IsEnded == true)
             {
                 return BadRequest();
             }

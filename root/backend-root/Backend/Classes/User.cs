@@ -17,17 +17,17 @@ namespace Backend.Classes
         {
             auctions.Add(auction);
         }
-        
+
         public void RemoveAuction(List<Auction> auctions, Auction auction)
         {
             auctions.Remove(auction);
         }
-        
+
         public void AddCash(float cash)
         {
             this.Cash += cash;
         }
-        
+
         public void RemoveCash(float cash)
         {
             this.Cash -= cash;

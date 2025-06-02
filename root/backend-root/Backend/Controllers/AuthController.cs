@@ -14,7 +14,7 @@ namespace Backend.Controllers
         {
             _authService = authService;
         }
-        
+
         [HttpPost("register")]
         public async Task<IResult> Register(User user)
         {

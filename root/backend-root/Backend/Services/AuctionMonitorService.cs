@@ -1,7 +1,5 @@
 ﻿using Backend.Classes;
 using Backend.Context;
-using Microsoft.AspNetCore.Http.HttpResults;
-using SQLitePCL;
 
 namespace Backend.Services
 {
@@ -34,11 +32,11 @@ namespace Backend.Services
             var expiredAuctions = context.Auctions.ToList()
                                     .Where(a => a.EndDate < now && a.IsEnded == false).ToList();
 
-             foreach (var auction in expiredAuctions)
+            foreach (var auction in expiredAuctions)
             {
                 auction.IsEnded = true;
                 User? user = await context.Users.FindAsync(auction.WinnerId);
-                if(user == null)
+                if (user == null)
                 {
                     continue;
                 }
@@ -57,7 +55,7 @@ namespace Backend.Services
             var context = scope.ServiceProvider.GetRequiredService<WebShop24DbContext>();
 
             var users = context.Users;
-            foreach(var user in users)
+            foreach (var user in users)
             {
                 user.ParticipatedAuctionIds.Remove(auctionId);
                 context.Users.Update(user);

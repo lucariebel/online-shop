@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using Backend.Classes;
+﻿using Backend.Classes;
 using Backend.Context;
 using Backend.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
-using NUnit.Framework;
+using System.Reflection;
 
 namespace Backend.Tests
 {
@@ -102,7 +97,7 @@ namespace Backend.Tests
         {
             // Arrange
 
-            
+
 
             var service = new AuctionMonitorService(_serviceProvider);
 
@@ -110,7 +105,7 @@ namespace Backend.Tests
             // Act
             await InvokeCheckAuctionsAsync(service);
             await service.RemoveAuctionsInParticipations(1);
-            
+
 
             // Assert
             var updatedAuction1 = _dbContext.Auctions.Find(1);
