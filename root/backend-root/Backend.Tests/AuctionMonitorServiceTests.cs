@@ -84,6 +84,13 @@ namespace Backend.Tests
             _dbContext.SaveChanges();
         }
 
+        [TearDown]
+        public void TearDown()
+        {
+            _dbContext.Database.EnsureDeleted();
+            _dbContext.Dispose();
+        }
+
         private async Task InvokeCheckAuctionsAsync(AuctionMonitorService service)
         {
             var method = typeof(AuctionMonitorService)
