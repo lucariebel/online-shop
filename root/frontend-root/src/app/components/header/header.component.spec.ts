@@ -83,9 +83,9 @@ describe('HeaderComponent', () => {
         category: 'Test Category',
         isAvailable: true,
         description: 'Test Description',
-        userId: 1,
+        ownerId: 1,
         pictures: [],
-        user: { userId: 1, username: 'Test User' } as User,
+        owner: { userId: 1, username: 'Test User' } as User,
       },
     ] as DirectBuyArticle[];
 

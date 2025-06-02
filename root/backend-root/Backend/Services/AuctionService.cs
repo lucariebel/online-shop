@@ -36,7 +36,7 @@ namespace Backend.Services
         {
             AuctionArticle auctionArticle = await _context.Auctions.FindAsync(id);
 
-            if (auctionArticle == null)
+            if (auctionArticle == null || auctionArticle.IsEnded == true)
             {
                 return NotFound();
             }
@@ -47,12 +47,13 @@ namespace Backend.Services
         public async Task<ActionResult<IEnumerable<AuctionArticle>>> GetRandomArticles(int count)
         {
             List<AuctionArticle> auctionArticles = [];
-            return await _context.Auctions.OrderBy(article => EF.Functions.Random()).Take(count).ToListAsync();
+            return await _context.Auctions.Where(a => a.IsEnded == false).OrderBy(article => EF.Functions.Random()).Take(count).ToListAsync();
         }
 
         // Post
         public async Task<ActionResult<AuctionArticle>> PostAuction(AuctionArticle auctionArticle)
         {
+            auctionArticle.Owner = null;
             _context.Auctions.Add(auctionArticle);
             await _context.SaveChangesAsync();
 
@@ -62,7 +63,7 @@ namespace Backend.Services
         // Put
         public async Task<IActionResult> PutAuction(int id, AuctionArticle auctionArticle)
         {
-            if (id != auctionArticle.ArticleId)
+            if (id != auctionArticle.ArticleId || auctionArticle.IsEnded == true)
             {
                 return BadRequest();
             }
@@ -93,11 +94,19 @@ namespace Backend.Services
             {
                 return NotFound();
             }
+            if (auctionArticle.IsEnded == true)
+            {
+                return BadRequest();
+            }
             _context.Auctions.Remove(auctionArticle);
             await _context.SaveChangesAsync();
             return NoContent();
         }
 
+        public List<AuctionArticle> GetWonAuctions(int userId)
+        {
+            return _context.Auctions.Where(a => a.WinnerId == userId).ToList();
+        }
 
         private bool AuctionExists(int id)
         {

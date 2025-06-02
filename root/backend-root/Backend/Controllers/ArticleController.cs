@@ -15,7 +15,7 @@ namespace Backend.Controllers
         {
             _articleService = articleService;
         }
-        
+
         // Get: api/Article
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DirectBuyArticle>>> GetArticles()

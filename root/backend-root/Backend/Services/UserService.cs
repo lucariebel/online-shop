@@ -11,7 +11,7 @@ namespace Backend.Services
         User Logout(User user);
         User RegisterUser(User user);
         void DeleteUser(User user);
-        
+
         Task<IActionResult> PutUser(int id, User user);
 
     }
@@ -19,9 +19,9 @@ namespace Backend.Services
     public partial class UserService : ControllerBase, IUserService
     {
         private User _user;
-        
+
         private readonly WebShop24DbContext _context;
-        
+
         public UserService(WebShop24DbContext context)
         {
             _context = context;
@@ -47,7 +47,7 @@ namespace Backend.Services
         {
             throw new NotImplementedException();
         }
-        
+
         // Put
         public async Task<IActionResult> PutUser(int id, User user)
         {

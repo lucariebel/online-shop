@@ -1,12 +1,10 @@
-using System.Security.Claims;
-using System.Text;
 using Backend.Classes;
 using Backend.Context;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace Backend.Services;
 
@@ -20,16 +18,16 @@ public partial interface IAuthService
 public partial class AuthService : ControllerBase, IAuthService
 {
     private readonly WebShop24DbContext _context;
-    
+
     private readonly byte[] _tokenKey = Encoding.ASCII.GetBytes("EinSehrLangerGeheimerSchluessel123!!!!!");
 
     private readonly byte[] _hashKey = Encoding.ASCII.GetBytes("EinSehrLangerGeheimerSchluessel123FürPasswort!!!!!");
-    
+
     public AuthService(WebShop24DbContext context)
     {
         _context = context;
     }
-    
+
     // Login
     public async Task<IResult> Login(User user)
     {
@@ -45,6 +43,7 @@ public partial class AuthService : ControllerBase, IAuthService
             var token = tokenHandler.CreateToken(tokenDescriptor);
             user.UserId = User.UserId;
             user.Cash = User.Cash;
+            user.ParticipatedAuctionIds = User.ParticipatedAuctionIds;
             return Results.Ok(new { token = tokenHandler.WriteToken(token), user });// Das Token zurückgeben
 
         }
@@ -56,13 +55,13 @@ public partial class AuthService : ControllerBase, IAuthService
         User user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
         return user;
     }
-    
+
     // Get
     public async Task<ActionResult<IEnumerable<User>>> GetUsers()
     {
         return await _context.Users.ToListAsync();
     }
-    
+
     // Get/{id}
     public async Task<ActionResult<User>> GetUser(int id)
     {
@@ -74,7 +73,7 @@ public partial class AuthService : ControllerBase, IAuthService
         }
         return user;
     }
-    
+
     public async Task<IResult> RegisterUser(User user)
     {
         _context.Users.Add(user);
