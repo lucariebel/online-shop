@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuctionArticle } from '../../core/interfaces/AuctionArticle';
 import { AuctionService } from '../../core/services/auction.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import {
   MatDatepicker,
   MatDatepickerInput,
@@ -85,12 +85,14 @@ export class CreateAuctionComponent {
     public auctionService: AuctionService,
     public imageService: ImageUploadService,
     public userService: UserService,
+    private router: Router,
   ) {}
 
   onSubmit() {
     console.log(this.newAuction);
 
     this.postAuction();
+    this.router.navigate(['/']);
     console.log(this.auctionService.auctionArticles);
   }
 
