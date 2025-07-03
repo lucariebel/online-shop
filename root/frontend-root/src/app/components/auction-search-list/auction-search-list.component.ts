@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AuctionArticle } from '../../core/interfaces/AuctionArticle';
 import { SearchService } from '../../core/services/search.service';
 import {
   MatCard,
@@ -26,9 +25,7 @@ import { RouterLink } from '@angular/router';
     RouterLink,
   ],
   templateUrl: './auction-search-list.component.html',
-  styleUrl: './auction-search-list.component.scss',
 })
 export class AuctionSearchListComponent {
-  public auctionArticleList: AuctionArticle[] = [];
   constructor(public searchService: SearchService) {}
 }
