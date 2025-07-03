@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
+import { Component } from '@angular/core';
 import { SearchService } from '../../core/services/search.service';
-import { DirectBuyArticle } from '../../core/interfaces/DirectBuyArticle';
 import {
   MatCard,
   MatCardContent,
@@ -12,6 +10,7 @@ import {
 } from '@angular/material/card';
 import { EurFormatPipe } from '../../core/pipes/eur-format.pipe';
 import { RouterLink } from '@angular/router';
+
 @Component({
   selector: 'app-article-search-list',
   standalone: true,
@@ -26,9 +25,7 @@ import { RouterLink } from '@angular/router';
     RouterLink,
   ],
   templateUrl: './article-search-list.component.html',
-  styleUrl: './article-search-list.component.scss',
 })
 export class ArticleSearchListComponent {
-  public articleList: DirectBuyArticle[] = [];
   constructor(public searchService: SearchService) {}
 }
