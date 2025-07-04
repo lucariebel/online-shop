@@ -7,45 +7,16 @@ namespace Backend.Services
 {
     public partial interface IUserService
     {
-        User Login(User user);
-        User Logout(User user);
-        User RegisterUser(User user);
-        void DeleteUser(User user);
-
         Task<IActionResult> PutUser(int id, User user);
-
     }
 
     public partial class UserService : ControllerBase, IUserService
     {
-        private User _user;
-
         private readonly WebShop24DbContext _context;
 
         public UserService(WebShop24DbContext context)
         {
             _context = context;
-        }
-
-
-        public void DeleteUser(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public User Login(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public User Logout(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public User RegisterUser(User user)
-        {
-            throw new NotImplementedException();
         }
 
         // Put
@@ -72,9 +43,9 @@ namespace Backend.Services
                     throw;
                 }
             }
-
             return NoContent();
         }
+
         private bool UserExists(int id)
         {
             return _context.Users.Any(a => a.UserId == id);
