@@ -7,10 +7,6 @@ namespace Backend.Services
 {
     public partial interface IUserService
     {
-        User Login(User user);
-        User Logout(User user);
-        User RegisterUser(User user);
-        void DeleteUser(User user);
         Task<IActionResult> PutUser(int id, User user);
     }
 
