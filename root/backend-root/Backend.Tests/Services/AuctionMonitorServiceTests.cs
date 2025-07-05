@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using System.Reflection;
 
-namespace Backend.Tests
+namespace Backend.Tests.Services
 {
     [TestFixture]
     public class AuctionMonitorServiceTests
