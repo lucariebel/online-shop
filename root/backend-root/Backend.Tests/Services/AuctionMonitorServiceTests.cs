@@ -23,7 +23,6 @@ namespace Backend.Tests.Services
 
             _dbContext = new WebShop24DbContext(options);
 
-            // Manueller ServiceProvider mit fixiertem DbContext
             var services = new ServiceCollection();
             services.AddSingleton(_dbContext);
             var builtProvider = services.BuildServiceProvider();
@@ -103,16 +102,11 @@ namespace Backend.Tests.Services
         public async Task CheckAuctionsAsync_ShouldMarkAuctionAsEnded_AndDeductCash()
         {
             // Arrange
-
-
-
             var service = new AuctionMonitorService(_serviceProvider);
-
 
             // Act
             await InvokeCheckAuctionsAsync(service);
             await service.RemoveAuctionsInParticipations(1);
-
 
             // Assert
             var updatedAuction1 = _dbContext.Auctions.Find(1);
