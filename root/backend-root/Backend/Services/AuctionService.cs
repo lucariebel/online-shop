@@ -13,8 +13,6 @@ namespace Backend.Services
         Task<ActionResult<AuctionArticle>> PostAuction(AuctionArticle auctionArticle);
         Task<IActionResult> PutAuction(int id, AuctionArticle auctionArticle);
         Task<ActionResult> DeleteAuction(int id);
-        void NewBid(AuctionArticle auctionArticle, float bid, int userId);
-        void EndAuction(AuctionArticle auctionArticle);
     }
     public partial class AuctionService : ControllerBase, IAuctionService
     {
@@ -111,16 +109,6 @@ namespace Backend.Services
         private bool AuctionExists(int id)
         {
             return _context.Auctions.Any(a => a.ArticleId == id);
-        }
-
-        public void NewBid(AuctionArticle auctionArticle, float bid, int userId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void EndAuction(AuctionArticle auctionArticle)
-        {
-            throw new NotImplementedException();
         }
     }
 }
