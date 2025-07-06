@@ -4,7 +4,7 @@ using Backend.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Backend.Tests
+namespace Backend.Tests.Services
 {
     [TestFixture]
     public class ArticleServiceTests

@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using System.Reflection;
 
-namespace Backend.Tests
+namespace Backend.Tests.Services
 {
     [TestFixture]
     public class AuctionMonitorServiceTests
@@ -23,7 +23,6 @@ namespace Backend.Tests
 
             _dbContext = new WebShop24DbContext(options);
 
-            // Manueller ServiceProvider mit fixiertem DbContext
             var services = new ServiceCollection();
             services.AddSingleton(_dbContext);
             var builtProvider = services.BuildServiceProvider();
@@ -103,16 +102,11 @@ namespace Backend.Tests
         public async Task CheckAuctionsAsync_ShouldMarkAuctionAsEnded_AndDeductCash()
         {
             // Arrange
-
-
-
             var service = new AuctionMonitorService(_serviceProvider);
-
 
             // Act
             await InvokeCheckAuctionsAsync(service);
             await service.RemoveAuctionsInParticipations(1);
-
 
             // Assert
             var updatedAuction1 = _dbContext.Auctions.Find(1);
