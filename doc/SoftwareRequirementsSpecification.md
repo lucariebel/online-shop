@@ -1,4 +1,4 @@
-# Webshop24 - Software Requirements Specification
+# Software Requirements Specification (SRS) - Online-Shop
 
 ## 1. Introduction
 
@@ -26,7 +26,7 @@ Dieses Software Requirements Specification (SRS)-Dokument hat das Ziel, die Anfo
 | Titel                                                                   |   Datum    | Publishing organization |
 | ----------------------------------------------------------------------- | :--------: | ----------------------- |
 | [Webshop24 Blog](https://github.com/lucariebel/online-shop/discussions) | 17.10.2024 | Webshop24 Team          |
-| [GitHub](https://github.com/lucariebel/online-shop)                     | 17.10.2024 | Webshop24 Team          |
+| [Code-Repository](https://github.com/lucariebel/online-shop)                     | 17.10.2024 | Webshop24 Team          |
 
 ### 1.5 Overview
 
