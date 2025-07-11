@@ -1,16 +1,15 @@
 # Software Architecture Document
 
-- [Software Architecture Document](#software-architecture-document)
+- [Software Architecture Document](#Software-Architecture-Document)
     - [1. Introduction](#1-introduction)
         - [1.1 Purpose](#11-purpose)
         - [1.2 Scope](#12-scope)
         - [1.3 Definitions, Acronyms and Abbreviations](#13-definitions-acronyms-and-abbreviations)
         - [1.4 References](#14-references)
         - [1.5 Overview](#15-overview)
-    - [2. Architecural Represetation](#2-architecural-represetation)
+    - [2. Architecural Represetation](#2-Architectural-Representation)
     - [3. Architectural Goals and Constraints](#3-architectural-goals-and-constraints)
     - [4. Use-Case View](#4-use-case-view)
-        - [4.1 Use-Case Realizations](#41-use-case-realizations)
     - [5. Logical View](#5-logical-view)
         - [5.1 Overview](#51-overview)
         - [5.2 Architecturally Siginificant Design Packages](#52-architecturally-siginificant-design-packages)
@@ -30,26 +29,31 @@ Das Dokument enthält den Zweck, den Umfang, Definitionen, Referenzen,
 eine detaillierte Beschreibung des Designs und abgeleitete Anforderungen,
 die bei der Implementierung berücksichtigt werden müssen.
 ### 1.1 Purpose
+Dieses Dokument beschreibt die Softwarearchitektur des Projekts „Online-Shop“ und dient als technische Grundlage für Implementierung und Qualitätssicherung.
 Der Zweck dieser Spezifikation zur Realisierung des Anwendungsfalls ist die Definition
 und Beschreibung der technischen Implementierung des Anwendungsfalls "Produkte durchsuchen".
 Sie dient als Leitfaden für das Entwicklungsteam, um sicherzustellen,
 dass alle funktionalen und nicht-funktionalen Anforderungen korrekt und effizient umgesetzt werden.
 ### 1.2 Scope
-Enthält Kategorien wie Navigation, Produktsuche und Filteranwendung.
-### 1.3 Definitions, Acronyms and Abbreviations
+Der Online-Shop bietet Nutzern die Möglichkeit, Produkte zu durchsuchen, zu bestellen und zu bewerten. Das System unterstützt außerdem die Verwaltung von Produkten und Bestellungen durch Administratoren.
+### 1.3 Definitions, Acronyms, and Abbreviations
 - **Use Case**: Handlungen zur Erreichung eines bestimmten Ziels.
 - **Mockup**: Visuelle Darstellung der Benutzeroberfläche.
 - **Sequenzdiagramm**: Diagramm, das die Interaktionen von Objekten im Zeitverlauf zeigt.
 - **UML**: Vereinheitlichte Modellierungssprache.
 - **n.A.**: nicht anwendbar.
+- **SAD**: Software Architecture Document
+- **API**: Application Programming Interface
+- **CI/CD**: Continuous Integration / Continuous Deployment
+- **MVC**: Model View Controller
 ### 1.4 References
 **n.a**
 ### 1.5 Overview
 Dieses Dokument enthält einen präzisen Plan für die Implementierung des Anwendungsfalls "Produkte durchsuchen" in unserem Online-Shop.
 Es umfasst den Zweck und den Umfang der Funktionalität, Schlüssel Definitionen, relevante Referenzen, einen detaillierten Designfluss von Ereignissen und abgeleitete Anforderungen.
 Ziel ist es, das Entwicklungsteam bei der effizienten Umsetzung der Produkt-Durchsuchen Funktionen anzuleiten und sicherzustellen, dass alle Anforderungen erfüllt werden.
-## 2. Architecural Represetation
-![archiecural-representation.png](component-diagrams)
+## 2. Architectural Representation
+![architecural-representation.png](component-diagrams/architecural-representation.png)
 -
 
 1. **Benutzeraktion**: Der Benutzer gibt einen Suchbegriff in die Suchleiste auf der Website ein.
@@ -67,14 +71,32 @@ Ziel ist es, das Entwicklungsteam bei der effizienten Umsetzung der Produkt-Durc
 4. **Entwicklungssicht:** Die Entwicklung erfolgt modular mit Angular für das Frontend und ASP.NET für das Backend. SQLite dient als Datenbank, unterstützt durch Caching mit Redis.
 
 ## 4. Use-Case View
-
-### 4.1 Use-Case Realizations
+- Registrierung & Login
+- Produkte anzeigen & filtern
+- Auktionen erstellen
+- Auf Auktionen bieten
+- Admin: Produktverwaltung
 
 ## 5. Logical View
-
 ### 5.1 Overview
+Die Softwarearchitektur basiert auf einem klassischen 3-Schichten-Modell:
+- **Presentation Layer (Angular Frontend)**
+- **Business Logic Layer (ASP.NET Backend)**
+- **Data Layer (SQLite)**
 
 ### 5.2 Architecturally Siginificant Design Packages
+
+### Artikel Package
+- ArticleService 
+### Auction Package
+- AuctionMonitorService
+- AuctionService 
+### ArticleService
+Verwaltet Erstellen, Bearbeiten und Löschen von Direktkaufartikel
+### AuctionMonitorService
+Überwacht die Restzeit von Auktionen. Bei abgelaufener Zeit wird die Auktion beendet
+### AuctionService
+Verwaltet Erstellen, Bearbeiten und Löschen von Auktionen
 
 ## 6. Process View
 
@@ -148,7 +170,19 @@ Ziel ist es, das Entwicklungsteam bei der effizienten Umsetzung der Produkt-Durc
   Rückgabe der Auktionsdetails oder einer Erfolgsnachricht.
 
 ## 7. Deployment View
+Deployment-Konfiguration: Cloud Deployment
 
+| Knoten                         | Beschreibung                                                                    |
+| ------------------------------ | ------------------------------------------------------------------------------- |
+| **Browser (Client)**           | Führt Angular App aus                                                           |
+| **Frontend Container**         | Hostet Angular-Frontend (z. B. NGINX oder statische Datei-Hosts)                |
+| **Backend Container**          | ASP.NET Core Web API Anwendung                                                  |
+| **Volume oder Shared Storage** | SQLite-Datei gespeichert auf gemountetem Volume oder persistentem Cloud-Storage |
+
+Kommunikationspfade
+- Client → Frontend Container (HTTPS)
+- Frontend → Backend Container (interner HTTPS) über API-Endpoint
+- Backend → SQLite (lokaler Zugriff auf Volume)
 ## 8. Implementation View
 
 ### 8.1 Overview
